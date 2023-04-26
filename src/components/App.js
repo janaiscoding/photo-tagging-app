@@ -4,7 +4,6 @@ import { Route, Routes, HashRouter } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-import Card from "./Card";
 import Navbar from "../utilities/Navbar";
 import Home from "../pages/Home";
 import Leaderboard from "../pages/Leaderboard";
@@ -26,9 +25,6 @@ const App = () => {
   useEffect(() => {
     fetchImages();
   }, []);
-  const allImgs = images.map((image) => (
-    <Card name={image.name} url={image.url} key={image.id} />
-  ));
 
   return (
     <HashRouter>
