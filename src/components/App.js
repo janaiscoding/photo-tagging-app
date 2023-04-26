@@ -1,10 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
+import { Route, Routes, HashRouter } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-function App() {
+import Card from "./Card";
+import Navbar from "../utilities/Navbar";
+import Home from "../pages/Home";
+import Leaderboard from "../pages/Leaderboard";
+import Contact from "../pages/Contact";
+
+const App = () => {
   const [images, setImages] = useState([]);
 
   const fetchImages = async () => {
@@ -20,16 +26,20 @@ function App() {
   useEffect(() => {
     fetchImages();
   }, []);
+  const allImgs = images.map((image) => (
+    <Card name={image.name} url={image.url} key={image.id} />
+  ));
 
   return (
-    <>
-      <div className="images-wrapper">
-        {images.map((image) => (
-          <Card name={image.name} url={image.url} key={image.id} />
-        ))}
-      </div>
-    </>
+    <HashRouter>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Home images={images}/>} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </HashRouter>
   );
-}
+};
 
 export default App;
