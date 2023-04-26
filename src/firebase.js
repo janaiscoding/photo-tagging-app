@@ -2,13 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  apiKey: "AIzaSyAZWbbZwd5_-_epqIoBA3RvaX8ukOBssNY",
+  authDomain: "a-photo-tagging-app.firebaseapp.com",
+  projectId: "a-photo-tagging-app",
+  storageBucket: "a-photo-tagging-app.appspot.com",
+  messagingSenderId: "722627539833",
+  appId: "1:722627539833:web:9ff722cd5ef9d0660fb5a8",
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const db = getFirestore(app);
+
+export { db };
