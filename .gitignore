@@ -7,7 +7,8 @@
 
 # testing
 /coverage
-
+firebase-debug.log
+firebase-debug.*.log
 # production
 /build
 
