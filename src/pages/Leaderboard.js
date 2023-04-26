@@ -1,7 +1,11 @@
 import React from "react";
 
 const Leaderboard = () => {
-  return <>Leaderboard Element</>;
+  return (
+    <>
+      <h1> Leaderboard Element</h1>
+    </>
+  );
 };
 
 export default Leaderboard;
