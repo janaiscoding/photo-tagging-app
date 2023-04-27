@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #0d0900;
+}
+a,
+a:visited,
+a:focus {
+  color: #ecc19e;
+  text-decoration: none;
+}
