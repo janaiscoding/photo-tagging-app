@@ -17,8 +17,10 @@ const App = () => {
   const [isVisible, setVisible] = useState(false);
   const [clickCoord, setClickCoord] = useState([0, 0]);
   const [targets, setTargets] = useState(data);
+  const [verifier, setVerifier] = useState("");
 
   const clickHandler = (e) => {
+    console.log(e);
     //on click i: 1. store coordinates of the user click
     setClickCoord([e.pageX, e.pageY]);
     // check if a box already exists
@@ -30,10 +32,12 @@ const App = () => {
       setVisible(true);
     }
     createBorder(e);
+    setVerifier(e.target.id);
   };
 
   const handleVisibility = () => {
     setVisible(false);
+    setVerifier("");
     const toDelete = document.getElementById("border-box");
     if (toDelete) {
       toDelete.remove();
@@ -54,9 +58,15 @@ const App = () => {
     document.body.append(borderBox);
   };
   const handleSelector = (option) => {
-    console.log(option);
+    console.log(`u have clicked`, option);
+
     //picks the button's content
     //will check if it matches img map -> return feedback to user based on pick
+    if (verifier === option) {
+      console.log("you found charlie");
+    } else {
+      console.log("there was nothing here");
+    }
     //if it matches, i set it on the data as "found" and remove it from the buttons' contents "setTargets"
   };
 

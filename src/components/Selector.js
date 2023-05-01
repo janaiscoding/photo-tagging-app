@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ListItem from "./ListItem";
 
 const Selector = ({
@@ -29,7 +29,6 @@ const Selector = ({
     <>
       {isVisible ? (
         <div className="selecting-box">
-          {" "}
           {allItems}
           <button onClick={handleVisibility}>Close</button>
         </div>

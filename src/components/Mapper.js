@@ -3,9 +3,6 @@ import image from "../assets/discussing-the-divine-comedy-with-dante.jpg";
 import React from "react";
 
 const Mapper = ({ clickHandler }) => {
-  const selectCharlie = () => {
-    console.log(`charlie selected`);
-  };
   return (
     <>
       <img
@@ -20,7 +17,7 @@ const Mapper = ({ clickHandler }) => {
           coords="45,776,131,956"
           id="charlie"
           alt="Charlie"
-          onClick={selectCharlie}
+          onClick={(e) => clickHandler(e)}
         ></area>
       </map>
     </>
