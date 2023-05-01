@@ -6,10 +6,11 @@ const Selector = ({
   targets,
   isVisible,
   handleSelector,
-  handleVisibility,
+  handleClearing,
 }) => {
   const allItems = targets.map((target) => (
     <ListItem
+      target={target}
       name={target.name}
       key={target.id}
       handleSelector={handleSelector}
@@ -30,7 +31,7 @@ const Selector = ({
       {isVisible ? (
         <div className="selecting-box">
           {allItems}
-          <button onClick={handleVisibility}>Close</button>
+          <button onClick={handleClearing}>Close</button>
         </div>
       ) : (
         ""

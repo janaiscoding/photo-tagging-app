@@ -1,6 +1,6 @@
 export const data = [
   {
-    name: "charlie",
+    name: "charlie chaplin",
     id: 1,
     isFound: false,
   },

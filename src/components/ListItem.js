@@ -1,8 +1,8 @@
 import React from "react";
 
-const ListItem = ({ name, handleSelector }) => {
+const ListItem = ({ target, name, handleSelector }) => {
   return (
-    <button className="item-name" onClick={() => handleSelector(name)}>
+    <button className="item-name" onClick={() => handleSelector(target)}>
       {name}
     </button>
   );

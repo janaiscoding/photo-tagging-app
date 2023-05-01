@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes, HashRouter } from "react-router-dom";
 import Navbar from "../utilities/Navbar";
 // import Footer from "../utilities/Footer";
@@ -40,18 +40,14 @@ const App = () => {
   };
 
   // Fires when user clicks "close" button on the list items
-  const handleVisibility = () => {
-    // This will always set visibility back to false and remove any existing UI helpers
+  const handleClearing = () => {
     setVisible(false);
-    // Sets back the verifier to nothing
     setVerifier("");
-    // Deletes any existing borders on the screen (if any)
     const toDelete = document.getElementById("border-box");
     if (toDelete) {
       toDelete.remove();
     }
   };
-
   const createBorder = (e) => {
     const borderBox = document.createElement("div");
     borderBox.id = "border-box";
@@ -67,17 +63,30 @@ const App = () => {
   };
 
   // Fires when user picks a choice from the list -> choice = target.name
-  const handleSelector = (choice) => {
-    console.log(`u have clicked`, choice);
+  const handleSelector = (target) => {
+    console.log(`u have clicked`, target);
 
     // First it picks the clicked button's content
     // Will check if it matches img map area id( aka. verifier) -> return feedback to user based on pick
-    if (verifier === choice) {
+    if (verifier === target.name) {
       console.log("you found", verifier);
+      handleTargetList(target);
     } else {
       console.log("incorrect choice");
     }
-    //if it matches, i set it on the data as "found" and remove it from the buttons' contents "setTargets"
+    // If it matches, i set it on the data as "found" and remove it from the buttons' contents "setTargets"
+
+    // Cleans everything on the screen and resets verifier
+    handleClearing();
+  };
+  const handleTargetList = (target) => {
+    const targetIndex = targets.findIndex(
+      (clickedTarget) => clickedTarget.id === target.id
+    );
+    const newTargets = targets.slice();
+    newTargets[targetIndex].isFound = true;
+    console.log(targets)
+    setTargets(newTargets);
   };
 
   return (
@@ -85,7 +94,7 @@ const App = () => {
       <Selector
         targets={targets}
         isVisible={isVisible}
-        handleVisibility={handleVisibility}
+        handleClearing={handleClearing}
         clickCoord={clickCoord}
         handleSelector={handleSelector}
       />
