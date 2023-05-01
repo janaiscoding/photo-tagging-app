@@ -103,6 +103,8 @@ const App = () => {
       setTimerActive(false);
       // stops timer + stores time value
       // prompts for username + sends it with the timer to firebase "leaderboard"
+      // prompt for reset game aka sets all the targets back to isFound false
+
     }
   };
   useEffect(() => {
