@@ -13,10 +13,14 @@ import { data } from "../assets/data";
 import Selector from "./Selector";
 
 const App = () => {
-  // selector helper
+  // Game helpers
+  // Visibility for UI elements
   const [isVisible, setVisible] = useState(false);
+  // User Click coordinates: used for placing the targets elements
   const [clickCoord, setClickCoord] = useState([0, 0]);
+  // Targets data: used for handling the buttons for user choices
   const [targets, setTargets] = useState(data);
+  // Verifier: only gets the map's areas id's to be able to check against user button click
   const [verifier, setVerifier] = useState("");
 
   const clickHandler = (e) => {
@@ -35,9 +39,13 @@ const App = () => {
     setVerifier(e.target.id);
   };
 
+  // Fires when user clicks "close" button on the list items
   const handleVisibility = () => {
+    // This will always set visibility back to false and remove any existing UI helpers
     setVisible(false);
+    // Sets back the verifier to nothing
     setVerifier("");
+    // Deletes any existing borders on the screen (if any)
     const toDelete = document.getElementById("border-box");
     if (toDelete) {
       toDelete.remove();
@@ -48,8 +56,8 @@ const App = () => {
     const borderBox = document.createElement("div");
     borderBox.id = "border-box";
     borderBox.style.position = "absolute";
-    borderBox.style.width = "100px";
-    borderBox.style.height = "100px";
+    borderBox.style.width = "80px";
+    borderBox.style.height = "80px";
     borderBox.style.left = e.pageX - 50 + "px";
     borderBox.style.top = e.pageY - 50 + "px";
     borderBox.style.opacity = 0.5;
@@ -57,15 +65,17 @@ const App = () => {
     borderBox.style.borderRadius = "50%";
     document.body.append(borderBox);
   };
-  const handleSelector = (option) => {
-    console.log(`u have clicked`, option);
 
-    //picks the button's content
-    //will check if it matches img map -> return feedback to user based on pick
-    if (verifier === option) {
-      console.log("you found charlie");
+  // Fires when user picks a choice from the list -> choice = target.name
+  const handleSelector = (choice) => {
+    console.log(`u have clicked`, choice);
+
+    // First it picks the clicked button's content
+    // Will check if it matches img map area id( aka. verifier) -> return feedback to user based on pick
+    if (verifier === choice) {
+      console.log("you found", verifier);
     } else {
-      console.log("there was nothing here");
+      console.log("incorrect choice");
     }
     //if it matches, i set it on the data as "found" and remove it from the buttons' contents "setTargets"
   };
