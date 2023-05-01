@@ -70,6 +70,7 @@ const App = () => {
     // Will check if it matches img map area id( aka. verifier) -> return feedback to user based on pick
     if (verifier === target.name) {
       console.log("you found", verifier);
+      // Handles all modifications for target list
       handleTargetList(target);
     } else {
       console.log("incorrect choice");
@@ -80,13 +81,22 @@ const App = () => {
     handleClearing();
   };
   const handleTargetList = (target) => {
+    // Find the target index
     const targetIndex = targets.findIndex(
       (clickedTarget) => clickedTarget.id === target.id
     );
+    // Create copy of the targets data
     const newTargets = targets.slice();
+    // Sets isFound to true
     newTargets[targetIndex].isFound = true;
-    console.log(targets)
+    console.log(targets);
+    // Sets new targets list to updated values
     setTargets(newTargets);
+    // Should check if all are isFound = game won
+    const isGameWon = targets.every((target) => target.isFound === true);
+    if (isGameWon) {
+      console.log(`game won`);
+    }
   };
 
   return (
