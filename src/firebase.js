@@ -4,6 +4,8 @@ import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyAZWbbZwd5_-_epqIoBA3RvaX8ukOBssNY",
   authDomain: "a-photo-tagging-app.firebaseapp.com",
+  databaseURL:
+    "https://a-photo-tagging-app-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "a-photo-tagging-app",
   storageBucket: "a-photo-tagging-app.appspot.com",
   messagingSenderId: "722627539833",
@@ -13,4 +15,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export { db };
+export default db;
