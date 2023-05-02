@@ -1,15 +1,14 @@
-# Jana's Shopping Cart
+# Jana's Photo Tagging App
 
 ## Project's Scope
 
-- The scope of this project was to build **my third application in React using react-router-dom**.
-- Using Router, I created a SPA Sushi Restaurant (Shopping Cart/Order Online).
+- The scope of this project was to build **my fourth application in React using Firebase Database**.
 
 ## Live Demo
 
 ![Gif preview of the photo tagging app]()
 
-- See the full live preview [here]()
+- See the full live preview [here](https://janaiscoding.github.io/photo-tagging-app/)
 
 ## Getting Started
 
@@ -47,4 +46,4 @@ npm start
 ## Copyright
 
 - This project is part of The Odin Project's [curriculum](https://www.theodinproject.com/lessons/node-path-javascript-where-s-waldo-a-photo-tagging-app).
-- The images for this app: [Discussing the Divine Comedy with Dante and Lewis Carroll](https://www.lewiscarroll.org/2012/07/06/discussing-the-divine-comedy-with-dante-and-lewis-carroll/), [Anime Collage Wallpaper](https://www.pinterest.com/pin/840484349187433460/), [Wally Image at the Beach](https://www.independent.co.uk/arts-entertainment/books/news/where-s-the-brains-behind-wally-6261459.html)
+- The images for this app: [Discussing the Divine Comedy with Dante and Lewis Carroll](https://www.lewiscarroll.org/2012/07/06/discussing-the-divine-comedy-with-dante-and-lewis-carroll/)
