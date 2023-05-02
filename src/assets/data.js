@@ -1,17 +1,24 @@
+import Charlie from "./charlie.png";
+import Abraham from "./abraham.png";
+import Bruce from "./bruce.png";
+
 export const data = [
   {
-    name: "charlie chaplin",
+    name: "Charlie Chaplin",
     id: 1,
+    img: Charlie,
     isFound: false,
   },
   {
-    name: "bruce lee",
+    name: "Bruce Lee",
     id: 2,
+    img: Bruce,
     isFound: false,
   },
   {
-    name: "abraham lincoln",
+    name: "Abraham Lincoln",
     id: 3,
+    img: Abraham,
     isFound: false,
   },
 ];

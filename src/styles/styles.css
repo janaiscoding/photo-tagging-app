@@ -15,6 +15,7 @@
 }
 .image-game {
   display: none;
+  min-height: 90vh;
 }
 .winning-main {
   height: 90vh;
@@ -22,6 +23,7 @@
 }
 .leaderboard {
   display: none;
+  height: 90vh;
 }
 
 /*FOOTER*/
@@ -33,7 +35,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5vh;
+  height: 3vh;
   letter-spacing: 2px;
 }
 .footer-link {

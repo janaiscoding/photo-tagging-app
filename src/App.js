@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-// import Footer from "../utilities/Footer";
+import Footer from "./components/Footer";
 import StartGame from "./components/StartGame";
 import Leaderboard from "./components/Leaderboard";
 import WinningScreen from "./components/WinningScreen";
@@ -183,7 +183,7 @@ const App = () => {
         handleSelector={handleSelector}
       />
       <Navbar targets={targets} timer={timer} />
-      <StartGame startGame={startGame} />
+      <StartGame targets={targets} startGame={startGame} />
       <WinningScreen
         username={username}
         handleUsername={handleUsername}
@@ -191,7 +191,7 @@ const App = () => {
       />
       <Mapper clickHandler={clickHandler} />
       <Leaderboard leaderboard={leaderboard} restartGame={restartGame} />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

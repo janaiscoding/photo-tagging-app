@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className="footer">
+      <footer>
         <a
           href="https://github.com/janaiscoding"
           className="footer-link"

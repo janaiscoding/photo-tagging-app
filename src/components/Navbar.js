@@ -20,7 +20,7 @@ const Navbar = ({ targets, timer }) => {
   return (
     <>
       <nav className="nav-bar">
-        <div className="timer">{targetsList}</div>
+        <div className="targets-list-nav-bar">{targetsList}</div>
         <div className="timer"> Timer: {timer} </div>
       </nav>
     </>
