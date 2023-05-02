@@ -40,7 +40,17 @@ const App = () => {
     // 3. start the timer
     setTimerActive(true);
   };
-
+  // const startTimer = () => {
+  //   let interval;
+  //   if (timerActive) {
+  //     interval = setInterval(() => {
+  //       setTimer((e) => e + 10);
+  //     }, 10);
+  //   } else if (!timerActive) {
+  //     clearInterval(interval);
+  //   }
+  //   return () => clearInterval(interval);
+  // };
   const clickHandler = (e) => {
     const borderBox = document.getElementById("border-box");
     // Set coordinates of the user click to pass onto the buttons list position.
@@ -172,18 +182,19 @@ const App = () => {
   async function getData() {
     try {
       const querySnapshot = await getDocs(collection(db, "leaderboard"));
-      let data = [];
+      let tempArr = [];
       querySnapshot.forEach((doc) => {
-        data.push(doc.data());
+        tempArr.push(doc.data());
       });
-      data.sort((a, b) => a.time - b.time);
-      data = data.filter((a) => a.time !== 0);
-      setScores(data);
-    } catch (err) {}
+      tempArr.sort((a, b) => a.timer - b.timer);
+      tempArr = tempArr.filter((a) => a.timer !== 0);
+      setScores(tempArr);
+    } catch (err) {
+      console.log(err);
+    }
   }
   // Timer Handler
   useEffect(() => {
-    getData();
     let interval;
     if (timerActive) {
       interval = setInterval(() => {
