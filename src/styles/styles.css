@@ -2,9 +2,77 @@
   margin: 0;
   padding: 0;
 }
+/* START GAME PANEL */
+.game-wrapper {
+  background-color: rgba(49, 20, 20, 0.918);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+}
+.game-info {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.651);
+}
 .targets-list-start-panel {
   display: flex;
   gap: 20px;
+  font-size: 1.3rem;
+}
+.target-item-start-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* WINNING SCREEN*/
+form {
+  background-color: rgba(245, 230, 230, 0.918);
+  font-size: 1.4rem;
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #0d0900;
+  border-radius: 5px;
+  padding: 40px;
+}
+
+/* LEADERBOARD */
+.board-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  background-color: rgba(245, 230, 230, 0.918);
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #0d0900;
+  border-radius: 5px;
+  padding: 40px;
+  gap: 5px;
+}
+.board-entry {
+  border-bottom: 1px solid saddlebrown;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.leaderboard-button{
+  margin-top: 10px;
 }
 /* MANIPULATED IN JS*/
 .start-game-main {
@@ -14,18 +82,26 @@
   justify-content: center;
   align-items: center;
   color: antiquewhite;
-  background-color: brown;
+  background-color: rgba(49, 20, 20, 0.918);
 }
 .image-game {
   display: none;
   min-height: 90vh;
 }
 .winning-main {
+  background-color: rgba(49, 20, 20, 0.918);
   height: 90vh;
   display: none;
+  justify-content: center;
+  align-items: flex-start;
 }
 .leaderboard {
+  background-color: rgba(49, 20, 20, 0.918);
   display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   height: 90vh;
 }
 #border-box {
@@ -41,9 +117,12 @@
   background-color: rgba(250, 235, 215, 0.623);
   color: #0d0900;
 }
-.selecting-box {
+.selection-box {
   position: absolute;
   font-size: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 /*FOOTER*/
 footer {
@@ -72,4 +151,65 @@ a:visited,
 a:focus {
   color: #ecc19e;
   text-decoration: none;
+}
+
+button {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 2rem;
+  padding: 10px calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+button:hover,
+button:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(49, 20, 20, 0.918);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+input {
+  font-size: 1.2rem;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  min-height: 2rem;
+}
+
+input:focus {
+  border-bottom: 2px solid rgb(77, 25, 25);
 }

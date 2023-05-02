@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
-import ListItem from "./ListItem";
+import TargetButton from "./TargetButton";
 
-const Selector = ({
+const SelectionBox = ({
   clickCoord,
   targets,
   isVisible,
   handleSelector,
   handleClearing,
 }) => {
-  const allItems = targets.map((target) => {
+  // eslint-disable-next-line array-callback-return
+  const toBeFoundButtons = targets.map((target) => {
     if (!target.isFound) {
       return (
-        <ListItem
+        <TargetButton
           target={target}
-          name={target.name}
           key={target.id}
           handleSelector={handleSelector}
         />
@@ -21,7 +21,7 @@ const Selector = ({
     }
   });
   useEffect(() => {
-    const selBox = document.querySelector(".selecting-box");
+    const selBox = document.querySelector(".selection-box");
     if (selBox) {
       selBox.style.left = clickCoord[0] + 50 + "px";
       selBox.style.top = clickCoord[1] + 50 + "px";
@@ -31,9 +31,11 @@ const Selector = ({
   return (
     <>
       {isVisible ? (
-        <div className="selecting-box">
-          {allItems}
-          <button onClick={handleClearing}>Close</button>
+        <div className="selection-box">
+          {toBeFoundButtons}
+          <button className="close-button" onClick={handleClearing}>
+            Close
+          </button>
         </div>
       ) : (
         ""
@@ -42,4 +44,4 @@ const Selector = ({
   );
 };
 
-export default Selector;
+export default SelectionBox;

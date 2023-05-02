@@ -7,7 +7,10 @@ import WinningScreen from "./components/WinningScreen";
 // Image Handler
 import Mapper from "./components/Mapper";
 import { data } from "./assets/data";
-import Selector from "./components/Selector";
+import SelectionBox from "./components/SelectionBox";
+// Database Handle
+import db from "./firebase";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 const App = () => {
   // all dom elements:
@@ -19,12 +22,12 @@ const App = () => {
 
   const [isVisible, setVisible] = useState(false);
   const [clickCoord, setClickCoord] = useState([0, 0]);
-  const [targets, setTargets] = useState(data);
+  const [targets] = useState(data);
   const [verifier, setVerifier] = useState("");
   const [timer, setTimer] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
   const [username, setUsername] = useState("");
-  const [leaderboard, setLeaderboard] = useState([]);
+  const [scores, setScores] = useState([]);
 
   const startGame = () => {
     const startUI = document.querySelector(".start-game-main");
@@ -71,9 +74,8 @@ const App = () => {
     borderBox.style.top = e.pageY - 30 + "px";
     document.body.append(borderBox);
   };
-  const createAlert = (target, type) => {
+  const createPopup = (target, type) => {
     if (type === "match") {
-      console.log("i call this when i match");
       const popupAlert = document.createElement("div");
       popupAlert.innerText = `You found ${target.name}`;
       popupAlert.id = "popup";
@@ -84,7 +86,6 @@ const App = () => {
         popupAlert.remove();
       }, 1000);
     } else {
-      console.log("i call this when i dont match");
       const popupAlert = document.createElement("div");
       popupAlert.innerText = `That was not ${target.name}`;
       popupAlert.id = "popup";
@@ -102,19 +103,20 @@ const App = () => {
     // Will check if it matches img map area id( aka. verifier) -> return feedback to user based on pick
     if (target.name === verifier) {
       // Show pop-up alert for matching a target element
-      createAlert(target, "match");
-      // Handles List for isFound + Checks winning condition
-      handleTargetList(target);
+      createPopup(target, "match");
+      // Handles targets for isFound
+      target.isFound = true;
+      // Checks winning condition
+      checkWin();
     } else {
-      createAlert(target, "notmatch");
+      createPopup(target, "notmatch");
     }
     // Cleans everything on the screen and resets verifier
     handleClearing();
   };
 
   // Sets the new updated game list and handles game winning condition
-  const handleTargetList = (target) => {
-    target.isFound = true;
+  const checkWin = () => {
     // Should check if all are isFound = game won
     const isGameWon = targets.every((target) => target.isFound === true);
     if (isGameWon) {
@@ -127,32 +129,37 @@ const App = () => {
         // hides image
         imageUI.style.display = "none";
         // shows winning screen for next step
-        winningUI.style.display = "block";
-      }, 1500);
+        winningUI.style.display = "flex";
+      }, 1100);
     }
   };
 
-  const saveScore = () => {
-    console.log(username + "has found everything in" + timer + "miliseconds");
+  const saveScore = async (e) => {
+    e.preventDefault();
     //here i will send the data to firebase user: username time: timer
-    // get back the data in order
-    // send it to the leaderboard element
+    try {
+      await addDoc(collection(db, "leaderboard"), {
+        username: username,
+        timer: timer,
+      });
+    } catch (error) {
+      console.error("Error writing new leaderboard entry", error);
+    }
+    getData();
     //hide prompt
     const winningUI = document.querySelector(".winning-main");
     winningUI.style.display = "none";
-    // showLeaderboard()
     const leaderboardUI = document.querySelector(".leaderboard");
-    leaderboardUI.style.display = "block";
+    leaderboardUI.style.display = "flex";
   };
+
   const handleUsername = (userInput) => {
     setUsername(userInput);
   };
+
   const restartGame = () => {
-    //resets all targets
-    const resetTargets = targets.slice();
-    resetTargets.forEach((target) => (target.isFound = false));
-    setTargets(resetTargets);
-    console.log(targets);
+    // Resets all targets
+    targets.forEach((target) => (target.isFound = false));
     // set timer back to 0
     setTimer(0);
     // hides leaderboard again
@@ -162,7 +169,21 @@ const App = () => {
     const startUI = document.querySelector(".start-game-main");
     startUI.style.display = "flex";
   };
+  async function getData() {
+    try {
+      const querySnapshot = await getDocs(collection(db, "leaderboard"));
+      let data = [];
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      data.sort((a, b) => a.time - b.time);
+      data = data.filter((a) => a.time !== 0);
+      setScores(data);
+    } catch (err) {}
+  }
+  // Timer Handler
   useEffect(() => {
+    getData();
     let interval;
     if (timerActive) {
       interval = setInterval(() => {
@@ -176,22 +197,23 @@ const App = () => {
 
   return (
     <>
-      <Selector
+      <SelectionBox
         targets={targets}
         isVisible={isVisible}
         handleClearing={handleClearing}
         clickCoord={clickCoord}
         handleSelector={handleSelector}
       />
-      <Navbar targets={targets} timer={timer} />
+      <Navbar targets={targets} timer={timer} restartGame={restartGame} />
       <StartGame targets={targets} startGame={startGame} />
       <WinningScreen
         username={username}
+        timer={timer}
         handleUsername={handleUsername}
         saveScore={saveScore}
       />
       <Mapper clickHandler={clickHandler} />
-      <Leaderboard leaderboard={leaderboard} restartGame={restartGame} />
+      <Leaderboard scores={scores} restartGame={restartGame} />
       <Footer />
     </>
   );

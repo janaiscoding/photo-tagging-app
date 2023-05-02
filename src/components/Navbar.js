@@ -21,7 +21,7 @@ const Navbar = ({ targets, timer }) => {
     <>
       <nav className="nav-bar">
         <div className="targets-list-nav-bar">{targetsList}</div>
-        <div className="timer"> Timer: {timer} </div>
+        <div className="timer"> Timer: {(timer / 1000).toFixed(2)} s </div>
       </nav>
     </>
   );

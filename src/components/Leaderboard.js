@@ -1,11 +1,23 @@
 import React from "react";
 
-const Leaderboard = ({restartGame}) => {
+const Leaderboard = ({ scores, restartGame }) => {
+  const allScores = scores.map((entry, i) => {
+    return (
+      <div key={i} className="board-entry">
+        <p className="username">
+          {i + 1}. {entry.username}
+        </p>
+        <p className="timer">{(entry.timer / 1000).toFixed(2)} s</p>
+      </div>
+    );
+  });
   return (
     <div className="leaderboard">
-      <h1> Leaderboard Element</h1>
-      <p> here i will list all based on firebase data</p>
-      <button onClick={restartGame}>Restart?</button>
+      <div className="board-wrapper">
+        <h1 className="leaderboard-title"> Hall of Fame (Top 15)</h1> 
+        {allScores}
+        <button onClick={restartGame} className="leaderboard-button">Try Again?</button>
+      </div>
     </div>
   );
 };
