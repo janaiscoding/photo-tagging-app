@@ -14,22 +14,22 @@ const Mapper = ({ clickHandler }) => {
         <area
           shape="rect"
           coords="45,776,131,956"
-          id="charlie chaplin"
-          alt="charlie chaplin"
+          id="Charlie Chaplin"
+          alt="Charlie Chaplin"
           onClick={(e) => clickHandler(e)}
         ></area>
         <area
           shape="rect"
           coords="671,167,753,341"
-          id="bruce lee"
-          alt="bruce lee"
+          id="Bruce Lee"
+          alt="Bruce Lee"
           onClick={(e) => clickHandler(e)}
         ></area>
         <area
           shape="rect"
           coords="1290,416,1372,561"
-          id="abraham lincoln"
-          alt="abraham lincoln"
+          id="Abraham Lincoln"
+          alt="Abraham Lincoln"
           onClick={(e) => clickHandler(e)}
         ></area>
       </map>
