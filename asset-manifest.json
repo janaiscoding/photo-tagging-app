@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/photo-tagging-app/static/css/main.93ac84d2.css",
+    "main.js": "/photo-tagging-app/static/js/main.dc46761c.js",
+    "static/media/discussing-the-divine-comedy-with-dante.jpg": "/photo-tagging-app/static/media/discussing-the-divine-comedy-with-dante.5b8591d46a1b758bbf10.jpg",
+    "static/media/charlie.png": "/photo-tagging-app/static/media/charlie.9567d82d74284028f720.png",
+    "static/media/abraham.png": "/photo-tagging-app/static/media/abraham.42a999187ff45283e2fd.png",
+    "static/media/bruce.png": "/photo-tagging-app/static/media/bruce.bd70700879bcefe501ce.png",
+    "index.html": "/photo-tagging-app/index.html",
+    "main.93ac84d2.css.map": "/photo-tagging-app/static/css/main.93ac84d2.css.map",
+    "main.dc46761c.js.map": "/photo-tagging-app/static/js/main.dc46761c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93ac84d2.css",
+    "static/js/main.dc46761c.js"
+  ]
+}
