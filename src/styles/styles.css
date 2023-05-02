@@ -35,6 +35,16 @@
   border: 2px solid black;
   border-radius: 50%;
 }
+#popup {
+  position: absolute;
+  font-size: 1.3rem;
+  background-color: rgba(250, 235, 215, 0.623);
+  color: #0d0900;
+}
+.selecting-box {
+  position: absolute;
+  font-size: 48px;
+}
 /*FOOTER*/
 footer {
   background-color: #0d0900;

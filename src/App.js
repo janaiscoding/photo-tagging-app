@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -40,12 +39,12 @@ const App = () => {
   };
 
   const clickHandler = (e) => {
-    const toDelete = document.getElementById("border-box");
+    const borderBox = document.getElementById("border-box");
     // Set coordinates of the user click to pass onto the buttons list position.
     setClickCoord([e.pageX, e.pageY]);
     // Check if a box already exists and removes in order to replace it with a new one
-    if (toDelete) {
-      toDelete.remove();
+    if (borderBox) {
+      borderBox.remove();
     }
     // Enables visibility so it can shows UI elements from the first click
     if (!isVisible) {
@@ -60,11 +59,9 @@ const App = () => {
   const handleClearing = () => {
     setVisible(false);
     setVerifier("");
-
-    const toDelete = document.getElementById("border-box");
-
-    if (toDelete) {
-      toDelete.remove();
+    const borderBox = document.getElementById("border-box");
+    if (borderBox) {
+      borderBox.remove();
     }
   };
   const createBorder = (e) => {
@@ -74,53 +71,67 @@ const App = () => {
     borderBox.style.top = e.pageY - 30 + "px";
     document.body.append(borderBox);
   };
+  const createAlert = (target, type) => {
+    if (type === "match") {
+      console.log("i call this when i match");
+      const popupAlert = document.createElement("div");
+      popupAlert.innerText = `You found ${target.name}`;
+      popupAlert.id = "popup";
+      popupAlert.style.left = clickCoord[0] + 30 + "px";
+      popupAlert.style.top = clickCoord[1] + 30 + "px";
+      document.body.append(popupAlert);
+      setTimeout(() => {
+        popupAlert.remove();
+      }, 1000);
+    } else {
+      console.log("i call this when i dont match");
+      const popupAlert = document.createElement("div");
+      popupAlert.innerText = `That was not ${target.name}`;
+      popupAlert.id = "popup";
+      popupAlert.style.left = clickCoord[0] + 30 + "px";
+      popupAlert.style.top = clickCoord[1] + 30 + "px";
+      document.body.append(popupAlert);
+      setTimeout(() => {
+        popupAlert.remove();
+      }, 1000);
+    }
+  };
 
   // Fires when user picks a choice from the list -> choice = target.name
   const handleSelector = (target) => {
     // Will check if it matches img map area id( aka. verifier) -> return feedback to user based on pick
     if (target.name === verifier) {
-      console.log("you found", verifier);
-      // show popup for finding "verifier"
-
-      // sets the certain target to isfound = true and checks winning condition
+      // Show pop-up alert for matching a target element
+      createAlert(target, "match");
+      // Handles List for isFound + Checks winning condition
       handleTargetList(target);
     } else {
-      console.log("incorrect choice, try again");
+      createAlert(target, "notmatch");
     }
-    // If it matches, i set it on the data as "found" and remove it from the buttons' contents "setTargets"
-
     // Cleans everything on the screen and resets verifier
     handleClearing();
   };
 
   // Sets the new updated game list and handles game winning condition
   const handleTargetList = (target) => {
-    // Find the target index
-    const targetIndex = targets.findIndex(
-      (clickedTarget) => clickedTarget.id === target.id
-    );
-    // Create copy of the targets data
-    const newTargets = targets.slice();
-    // Sets isFound to true
-    newTargets[targetIndex].isFound = true;
-    console.log(`target list after you found 1 target:`, targets);
-    // Sets new targets list to updated values
-    setTargets(newTargets);
-
+    target.isFound = true;
     // Should check if all are isFound = game won
     const isGameWon = targets.every((target) => target.isFound === true);
     if (isGameWon) {
-      const imageUI = document.querySelector(".image-game");
-      const winningUI = document.querySelector(".winning-main");
-      console.log(`game won`);
-      // stops timer
+      // Stops timer
       setTimerActive(false);
-      // hides image
-      imageUI.style.display = "none";
-      // shows winning screen for next step
-      winningUI.style.display = "block";
+      // Waits for everything to clean
+      setTimeout(() => {
+        const imageUI = document.querySelector(".image-game");
+        const winningUI = document.querySelector(".winning-main");
+        // hides image
+        imageUI.style.display = "none";
+        // shows winning screen for next step
+        winningUI.style.display = "block";
+      }, 1500);
     }
   };
+
   const saveScore = () => {
     console.log(username + "has found everything in" + timer + "miliseconds");
     //here i will send the data to firebase user: username time: timer
