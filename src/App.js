@@ -154,6 +154,9 @@ const App = () => {
     console.log(targets);
     // set timer back to 0
     setTimer(0);
+    // hides leaderboard again
+    const leaderboardUI = document.querySelector(".leaderboard");
+    leaderboardUI.style.display = "none";
     // goes back to start screen
     const startUI = document.querySelector(".start-game-main");
     startUI.style.display = "flex";
@@ -179,7 +182,7 @@ const App = () => {
         clickCoord={clickCoord}
         handleSelector={handleSelector}
       />
-      <Navbar timer={timer} />
+      <Navbar targets={targets} timer={timer} />
       <StartGame startGame={startGame} />
       <WinningScreen
         username={username}
