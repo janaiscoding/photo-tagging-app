@@ -2,6 +2,50 @@
   margin: 0;
   padding: 0;
 }
+
+/* MANIPULATED IN JS*/
+.start-game-main {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: antiquewhite;
+  background-color: brown;
+}
+.image-game {
+  display: none;
+}
+.winning-main {
+  height: 90vh;
+  display: none;
+}
+.leaderboard {
+  display: none;
+}
+
+/*FOOTER*/
+footer {
+  background-color: #0d0900;
+  border-top: 1px solid #ecc19e;
+  -webkit-box-shadow: 0px -5px 10px -4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -5px 10px -4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  letter-spacing: 2px;
+}
+.footer-link {
+  color: #ecc19e;
+}
+/* GLOBAL SETTINGS */
+a,
+a:visited,
+a:focus {
+  text-decoration: none;
+}
+
 a,
 a:visited,
 a:focus {

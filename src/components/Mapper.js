@@ -1,10 +1,9 @@
 import image from "../assets/discussing-the-divine-comedy-with-dante.jpg";
-
 import React from "react";
 
 const Mapper = ({ clickHandler }) => {
   return (
-    <>
+    <div className="image-game">
       <img
         src={image}
         alt="divine"
@@ -34,7 +33,7 @@ const Mapper = ({ clickHandler }) => {
           onClick={(e) => clickHandler(e)}
         ></area>
       </map>
-    </>
+    </div>
   );
 };
 

@@ -1,18 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { Route, Routes, HashRouter } from "react-router-dom";
-import Navbar from "../utilities/Navbar";
+import Navbar from "./components/Navbar";
 // import Footer from "../utilities/Footer";
-// import Home from "../pages/Home";
-import Leaderboard from "../pages/Leaderboard";
-import Contact from "../pages/Contact";
-
-//image handler
-import Mapper from "./Mapper";
-import { data } from "../assets/data";
-import Selector from "./Selector";
+import StartGame from "./components/StartGame";
+import Leaderboard from "./components/Leaderboard";
+import WinningScreen from "./components/WinningScreen";
+// Image Handler
+import Mapper from "./components/Mapper";
+import { data } from "./assets/data";
+import Selector from "./components/Selector";
 
 const App = () => {
+  // all dom elements:
   // 1. Visibility: Used for UI elements (border box, button list).
   // 2. User Click coordinates: Used for placing the target elements.
   // 3. Targets data: Used for handling the data for the buttons, for the user choices and for winning condition.
@@ -25,13 +24,31 @@ const App = () => {
   const [verifier, setVerifier] = useState("");
   const [timer, setTimer] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
+  const [username, setUsername] = useState("");
 
+  const startGame = () => {
+    const startUI = document.querySelector(".start-game-main");
+    const imageUI = document.querySelector(".image-game");
+    // on the button click, this function will:
+    // 1. remove the dom element that hovers the screen with the info and everything
+    startUI.style.display = "none";
+    // 2. display the image
+    imageUI.style.display = "block";
+    // 3. start the timer
+    startTimer();
+  };
+  const startTimer = () => {
+    setTimerActive(true);
+  };
+  const stopTimer = () => {
+    setTimerActive(false);
+    console.log(timer);
+  };
   const clickHandler = (e) => {
+    const toDelete = document.getElementById("border-box");
     // Set coordinates of the user click to pass onto the buttons list position.
     setClickCoord([e.pageX, e.pageY]);
-    setTimerActive(true);
     // Check if a box already exists and removes in order to replace it with a new one
-    const toDelete = document.getElementById("border-box");
     if (toDelete) {
       toDelete.remove();
     }
@@ -48,7 +65,9 @@ const App = () => {
   const handleClearing = () => {
     setVisible(false);
     setVerifier("");
+
     const toDelete = document.getElementById("border-box");
+
     if (toDelete) {
       toDelete.remove();
     }
@@ -71,7 +90,9 @@ const App = () => {
     // Will check if it matches img map area id( aka. verifier) -> return feedback to user based on pick
     if (target.name === verifier) {
       console.log("you found", verifier);
-      // Handles all modifications for target list
+      // show popup for finding "verifier"
+
+      // sets the certain target to isfound = true and checks winning condition
       handleTargetList(target);
     } else {
       console.log("incorrect choice, try again");
@@ -99,13 +120,33 @@ const App = () => {
     // Should check if all are isFound = game won
     const isGameWon = targets.every((target) => target.isFound === true);
     if (isGameWon) {
+      const imageUI = document.querySelector(".image-game");
+      const winningUI = document.querySelector(".winning-main");
       console.log(`game won`);
-      setTimerActive(false);
-      // stops timer + stores time value
-      // prompts for username + sends it with the timer to firebase "leaderboard"
-      // prompt for reset game aka sets all the targets back to isFound false
+      // stops timer
+      stopTimer();
+      // hides image
 
+      imageUI.style.display = "none";
+      // shows winning screen
+      winningUI.style.display = "block";
+      // prompt for reset game aka sets all the targets back to isFound false
     }
+  };
+  const saveScore = (winner, score) => {
+    console.log(username + "has found everything in" + timer + "miliseconds");
+    //here i will send the data to firebase user: username time: timer
+    // get back the data in order
+    // send it to the leaderboard element
+    //hide prompt
+    const winningUI = document.querySelector(".winning-main");
+    winningUI.style.display = "none";
+    // showLeaderboard()
+    const leaderboardUI = document.querySelector(".leaderboard");
+    leaderboardUI.style.display = "block";
+  };
+  const handleUsername = (userInput) => {
+    setUsername(userInput);
   };
   useEffect(() => {
     let interval;
@@ -120,7 +161,7 @@ const App = () => {
   }, [timerActive]);
 
   return (
-    <HashRouter>
+    <>
       <Selector
         targets={targets}
         isVisible={isVisible}
@@ -129,17 +170,16 @@ const App = () => {
         handleSelector={handleSelector}
       />
       <Navbar timer={timer} />
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={<Mapper clickHandler={clickHandler} />}
-        />
-        <Route path="/leaderboard" element={<Leaderboard />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <StartGame startGame={startGame} />
+      <WinningScreen
+        username={username}
+        handleUsername={handleUsername}
+        saveScore={saveScore}
+      />
+      <Mapper clickHandler={clickHandler} />
+      <Leaderboard />
       {/* <Footer /> */}
-    </HashRouter>
+    </>
   );
 };
 
