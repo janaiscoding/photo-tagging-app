@@ -25,7 +25,7 @@ const App = () => {
   const [timer, setTimer] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
   const [username, setUsername] = useState("");
-
+  const [leaderboard, setLeaderboard] = useState([]);
   const startGame = () => {
     const startUI = document.querySelector(".start-game-main");
     const imageUI = document.querySelector(".image-game");
@@ -113,7 +113,7 @@ const App = () => {
     const newTargets = targets.slice();
     // Sets isFound to true
     newTargets[targetIndex].isFound = true;
-    console.log(targets);
+    console.log(`target list after you found 1 target:`, targets);
     // Sets new targets list to updated values
     setTargets(newTargets);
 
@@ -126,14 +126,12 @@ const App = () => {
       // stops timer
       stopTimer();
       // hides image
-
       imageUI.style.display = "none";
-      // shows winning screen
+      // shows winning screen for next step
       winningUI.style.display = "block";
-      // prompt for reset game aka sets all the targets back to isFound false
     }
   };
-  const saveScore = (winner, score) => {
+  const saveScore = () => {
     console.log(username + "has found everything in" + timer + "miliseconds");
     //here i will send the data to firebase user: username time: timer
     // get back the data in order
@@ -147,6 +145,18 @@ const App = () => {
   };
   const handleUsername = (userInput) => {
     setUsername(userInput);
+  };
+  const restartGame = () => {
+    //resets all targets
+    const resetTargets = targets.slice();
+    resetTargets.forEach((target) => (target.isFound = false));
+    setTargets(resetTargets);
+    console.log(targets);
+    // set timer back to 0
+    setTimer(0);
+    // goes back to start screen
+    const startUI = document.querySelector(".start-game-main");
+    startUI.style.display = "flex";
   };
   useEffect(() => {
     let interval;
@@ -177,7 +187,7 @@ const App = () => {
         saveScore={saveScore}
       />
       <Mapper clickHandler={clickHandler} />
-      <Leaderboard />
+      <Leaderboard leaderboard={leaderboard} restartGame={restartGame} />
       {/* <Footer /> */}
     </>
   );
