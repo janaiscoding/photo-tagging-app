@@ -26,6 +26,7 @@ const App = () => {
   const [timerActive, setTimerActive] = useState(false);
   const [username, setUsername] = useState("");
   const [leaderboard, setLeaderboard] = useState([]);
+
   const startGame = () => {
     const startUI = document.querySelector(".start-game-main");
     const imageUI = document.querySelector(".image-game");
@@ -35,15 +36,9 @@ const App = () => {
     // 2. display the image
     imageUI.style.display = "block";
     // 3. start the timer
-    startTimer();
-  };
-  const startTimer = () => {
     setTimerActive(true);
   };
-  const stopTimer = () => {
-    setTimerActive(false);
-    console.log(timer);
-  };
+
   const clickHandler = (e) => {
     const toDelete = document.getElementById("border-box");
     // Set coordinates of the user click to pass onto the buttons list position.
@@ -75,13 +70,8 @@ const App = () => {
   const createBorder = (e) => {
     const borderBox = document.createElement("div");
     borderBox.id = "border-box";
-    borderBox.style.position = "absolute";
-    borderBox.style.width = "70px";
-    borderBox.style.height = "70px";
     borderBox.style.left = e.pageX - 30 + "px";
     borderBox.style.top = e.pageY - 30 + "px";
-    borderBox.style.border = "2px solid black";
-    borderBox.style.borderRadius = "50%";
     document.body.append(borderBox);
   };
 
@@ -124,7 +114,7 @@ const App = () => {
       const winningUI = document.querySelector(".winning-main");
       console.log(`game won`);
       // stops timer
-      stopTimer();
+      setTimerActive(false);
       // hides image
       imageUI.style.display = "none";
       // shows winning screen for next step

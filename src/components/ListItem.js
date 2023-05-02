@@ -7,6 +7,7 @@ const ListItem = ({ target, name, handleSelector }) => {
       setColor("#000");
     }
   }, [target.isFound]);
+
   return (
     <button
       style={{ backgroundColor: color }}

@@ -1,8 +1,7 @@
 .nav-bar {
   background-color: #0d0900;
   color: #ecc19e;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   display: flex;
   border-bottom: 1px solid #ecc19e;
   font-weight: 700;
@@ -18,7 +17,6 @@
 .targets-list-nav-bar {
   display: flex;
   gap: 20px;
-  text-transform: uppercase;
 }
 
 .found {
