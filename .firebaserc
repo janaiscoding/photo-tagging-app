@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "a-photo-tagging-app",
-    "staging": "a-photo-tagging-app"
+    "staging": "a-photo-tagging-app",
+    "final": "a-photo-tagging-app"
   },
   "targets": {},
   "etags": {}
