@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/photo-tagging-app/static/css/main.1f7d7c59.css",
-    "main.js": "/photo-tagging-app/static/js/main.3168b6a0.js",
+    "main.js": "/photo-tagging-app/static/js/main.8e92476c.js",
     "static/media/discussing-the-divine-comedy-with-dante.jpg": "/photo-tagging-app/static/media/discussing-the-divine-comedy-with-dante.5b8591d46a1b758bbf10.jpg",
     "static/media/charlie.png": "/photo-tagging-app/static/media/charlie.9567d82d74284028f720.png",
     "static/media/abraham.png": "/photo-tagging-app/static/media/abraham.42a999187ff45283e2fd.png",
@@ -9,10 +9,10 @@
     "static/media/Inder-Regular.ttf": "/photo-tagging-app/static/media/Inder-Regular.8a2461b6d08b6710e6f8.ttf",
     "index.html": "/photo-tagging-app/index.html",
     "main.1f7d7c59.css.map": "/photo-tagging-app/static/css/main.1f7d7c59.css.map",
-    "main.3168b6a0.js.map": "/photo-tagging-app/static/js/main.3168b6a0.js.map"
+    "main.8e92476c.js.map": "/photo-tagging-app/static/js/main.8e92476c.js.map"
   },
   "entrypoints": [
     "static/css/main.1f7d7c59.css",
-    "static/js/main.3168b6a0.js"
+    "static/js/main.8e92476c.js"
   ]
 }
