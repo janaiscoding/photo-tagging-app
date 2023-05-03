@@ -2,13 +2,26 @@
 
 ## Project's Scope
 
-- The scope of this project was to build **my fourth application in React using Firebase Database**.
+- The scope of this project was to build my fourth application in React.
+- This is a SPA using React Router, but this time also using **Firebase** for backend Firestore implementation.
 
 ## Live Demo
 
 ![Gif preview of the photo tagging app]()
 
 - See the full live preview [here](https://janaiscoding.github.io/photo-tagging-app/)
+
+## Project Details, Description & Personal Notes
+
+- This is a **Find Waldo** type of game, where you are presented with an image, which holds certain targets to be found. I have learned to implement this using the HTML tag <map>.
+- When you successfully find all the required targets, you are prompted for a username.
+- Your username and your score gets added to the **backend** as a document in the **collection database**.
+- Afterwards, I am retrieving the updated data **onSnapshot** to display on a leaderboard. (still working on this)
+- This project was really challenging, but it helped me understand how to use Hooks better in React, more specifically why **dependencies** in useEffect are so important, to avoid calling the database requests all the time. (Quota exceeded error)
+- I have also gained more experience with using **Conditional Rendering** based on State, this time I implemented it alongside with **React Router**, in order to display a certain container based on current game condition. My particular case was: if the game is won, simply display the winning page!
+- I read a lot of documentation about navigation, the useNavigate() hook, **redirecting**, but I came to the conclusion that in that particular case, a simple Conditional Rendering would be sufficient.
+- However, I still used **useNavigate()** to be able to handle the submit form and then redirect after the user input has been successfully added to the backend. Without doing so, the form would have either stopped working, or the button would have redirected instantly without waiting for my async function of adding a new document to the backend to complete (the Promise to be resolved).
+- Another difficult challenge I faced was trying to **deploy** my application to Firebase, since I would only see a blank page, but once again, after reading a lot, the issue lied within my package.json file. I was not supposed to have a "homepage" property, which was necessary for a gh-pages deploying, but it needed to be removed in order to deploy correctly on firebase.
 
 ## Getting Started
 
@@ -21,15 +34,12 @@ npm install
 npm start
 ```
 
-## Project Details & Description
-
-
 # Built with
 
 ## Technologies
 
 - React and React Router
-- Firestore 
+- Firebase - Google Cloud Firestore
 - CSS3
 - HTML5
 
@@ -41,7 +51,6 @@ npm start
 - Git and Github
 
 ### Future plans for this project
-
 
 ## Copyright
 
