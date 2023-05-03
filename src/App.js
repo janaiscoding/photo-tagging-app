@@ -20,7 +20,6 @@ const App = () => {
   // 3. Targets data: Used for handling the data for the buttons, for the user choices and for winning condition.
   // 4. Verifier: Only gets the map's areas id's to be able to check against user button click.
   // 5. Timer handling : Starts timer on first click and stops and records final time when the win condition was met.
-
   const [isVisible, setVisible] = useState(false);
   const [clickCoord, setClickCoord] = useState([0, 0]);
   const [targets] = useState(data);
@@ -37,10 +36,12 @@ const App = () => {
     setTimer(0);
     setTimerActive(true);
   };
+  // Used on navbar to stop the timer when clicking on home page
   const handleTimer = () => {
     setTimer(0);
     setTimerActive(false);
   };
+
   const clickHandler = (e) => {
     const borderBox = document.getElementById("border-box");
     // Set coordinates of the user click to pass onto the buttons list position.
@@ -67,6 +68,7 @@ const App = () => {
       borderBox.remove();
     }
   };
+  // just the circle around the selection
   const createBorder = (e) => {
     const borderBox = document.createElement("div");
     borderBox.id = "border-box";
@@ -74,6 +76,8 @@ const App = () => {
     borderBox.style.top = e.pageY - 30 + "px";
     document.body.append(borderBox);
   };
+
+  // popup for hit or miss - strictly cosmetics
   const createPopup = (target, type) => {
     if (type === "match") {
       const popupAlert = document.createElement("div");
@@ -126,8 +130,8 @@ const App = () => {
     }
   };
 
-  const saveScore = async (e) => {
-    e.preventDefault();
+  // Sends the score to db
+  const saveScore = async () => {
     console.log("save score is called");
     //here i will send the data to firebase user: username time: timer
     try {
@@ -140,11 +144,12 @@ const App = () => {
       console.error("Error writing new leaderboard entry", error);
     }
   };
-
+  // For username in form
   const handleUsername = (userInput) => {
     setUsername(userInput);
   };
 
+  // Clears any existing game data
   const restartGame = () => {
     targets.forEach((target) => (target.isFound = false));
     setGameWon(false);
@@ -178,6 +183,17 @@ const App = () => {
             exact
             path="/"
             element={<StartGame targets={targets} startGame={startGame} />}
+          />
+          <Route
+            path="/win"
+            element={
+              <WinningScreen
+                username={username}
+                timer={timer}
+                handleUsername={handleUsername}
+                saveScore={saveScore}
+              />
+            }
           />
           <Route
             path="/game"
