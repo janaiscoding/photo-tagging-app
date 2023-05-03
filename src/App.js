@@ -10,7 +10,8 @@ import { data } from "./assets/data";
 import SelectionBox from "./components/SelectionBox";
 // Database Handle
 import db from "./firebase";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
   // all dom elements:
@@ -27,30 +28,16 @@ const App = () => {
   const [timer, setTimer] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
   const [username, setUsername] = useState("");
-  const [scores, setScores] = useState([]);
+  const [isGameWon, setGameWon] = useState(false);
 
   const startGame = () => {
-    const startUI = document.querySelector(".start-game-main");
-    const imageUI = document.querySelector(".image-game");
-    // on the button click, this function will:
-    // 1. remove the dom element that hovers the screen with the info and everything
-    startUI.style.display = "none";
-    // 2. display the image
-    imageUI.style.display = "block";
-    // 3. start the timer
+    //clean any data
+    targets.forEach((target) => (target.isFound = false));
+    setGameWon(false);
+    setTimer(0);
     setTimerActive(true);
   };
-  // const startTimer = () => {
-  //   let interval;
-  //   if (timerActive) {
-  //     interval = setInterval(() => {
-  //       setTimer((e) => e + 10);
-  //     }, 10);
-  //   } else if (!timerActive) {
-  //     clearInterval(interval);
-  //   }
-  //   return () => clearInterval(interval);
-  // };
+
   const clickHandler = (e) => {
     const borderBox = document.getElementById("border-box");
     // Set coordinates of the user click to pass onto the buttons list position.
@@ -132,35 +119,23 @@ const App = () => {
     if (isGameWon) {
       // Stops timer
       setTimerActive(false);
-      // Waits for everything to clean
-      setTimeout(() => {
-        const imageUI = document.querySelector(".image-game");
-        const winningUI = document.querySelector(".winning-main");
-        // hides image
-        imageUI.style.display = "none";
-        // shows winning screen for next step
-        winningUI.style.display = "flex";
-      }, 1100);
+      setGameWon(true);
     }
   };
 
   const saveScore = async (e) => {
     e.preventDefault();
+    console.log("save score is called");
     //here i will send the data to firebase user: username time: timer
     try {
       await addDoc(collection(db, "leaderboard"), {
         username: username,
         timer: timer,
       });
+      console.log("sent data to firebase");
     } catch (error) {
       console.error("Error writing new leaderboard entry", error);
     }
-    getData();
-    //hide prompt
-    const winningUI = document.querySelector(".winning-main");
-    winningUI.style.display = "none";
-    const leaderboardUI = document.querySelector(".leaderboard");
-    leaderboardUI.style.display = "flex";
   };
 
   const handleUsername = (userInput) => {
@@ -168,31 +143,11 @@ const App = () => {
   };
 
   const restartGame = () => {
-    // Resets all targets
     targets.forEach((target) => (target.isFound = false));
-    // set timer back to 0
+    setGameWon(false);
     setTimer(0);
-    // hides leaderboard again
-    const leaderboardUI = document.querySelector(".leaderboard");
-    leaderboardUI.style.display = "none";
-    // goes back to start screen
-    const startUI = document.querySelector(".start-game-main");
-    startUI.style.display = "flex";
   };
-  async function getData() {
-    try {
-      const querySnapshot = await getDocs(collection(db, "leaderboard"));
-      let tempArr = [];
-      querySnapshot.forEach((doc) => {
-        tempArr.push(doc.data());
-      });
-      tempArr.sort((a, b) => a.timer - b.timer);
-      tempArr = tempArr.filter((a) => a.timer !== 0);
-      setScores(tempArr);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+
   // Timer Handler
   useEffect(() => {
     let interval;
@@ -208,24 +163,43 @@ const App = () => {
 
   return (
     <>
-      <SelectionBox
-        targets={targets}
-        isVisible={isVisible}
-        handleClearing={handleClearing}
-        clickCoord={clickCoord}
-        handleSelector={handleSelector}
-      />
-      <Navbar targets={targets} timer={timer} restartGame={restartGame} />
-      <StartGame targets={targets} startGame={startGame} />
-      <WinningScreen
-        username={username}
-        timer={timer}
-        handleUsername={handleUsername}
-        saveScore={saveScore}
-      />
-      <Mapper clickHandler={clickHandler} />
-      <Leaderboard scores={scores} restartGame={restartGame} />
-      <Footer />
+      <HashRouter>
+        <Navbar targets={targets} timer={timer} restartGame={restartGame} />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<StartGame targets={targets} startGame={startGame} />}
+          />
+          <Route
+            path="/game"
+            element={
+              isGameWon ? (
+                <WinningScreen
+                  username={username}
+                  timer={timer}
+                  handleUsername={handleUsername}
+                  saveScore={saveScore}
+                />
+              ) : (
+                <Mapper clickHandler={clickHandler} />
+              )
+            }
+          />
+          <Route
+            path="/leaderboard"
+            element={<Leaderboard restartGame={restartGame} />}
+          />
+        </Routes>
+        <SelectionBox
+          targets={targets}
+          isVisible={isVisible}
+          handleClearing={handleClearing}
+          clickCoord={clickCoord}
+          handleSelector={handleSelector}
+        />
+        <Footer />
+      </HashRouter>
     </>
   );
 };

@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getDocs, collection } from "firebase/firestore";
+import db from "../firebase";
+import { Link } from "react-router-dom";
 
-const Leaderboard = ({ scores, restartGame }) => {
+const Leaderboard = ({ restartGame }) => {
+  const [scores, setScores] = useState([]);
+  useEffect(() => {
+    async function getData() {
+      try {
+        const querySnapshot = await getDocs(collection(db, "leaderboard"));
+        let tempArr = [];
+        querySnapshot.forEach((doc) => {
+          tempArr.push(doc.data());
+        });
+        tempArr.sort((a, b) => a.timer - b.timer);
+        tempArr = tempArr.filter((a) => a.timer !== 0);
+        setScores(tempArr);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getData();
+  });
+
   const allScores = scores.map((entry, i) => {
     return (
       <div key={i} className="board-entry">
@@ -14,9 +36,12 @@ const Leaderboard = ({ scores, restartGame }) => {
   return (
     <div className="leaderboard">
       <div className="board-wrapper">
-        <h1 className="leaderboard-title"> Hall of Fame (Top 15)</h1> 
+        <h1 className="leaderboard-title"> Hall of Fame (Top 15)</h1>
         {allScores}
-        <button onClick={restartGame} className="leaderboard-button">Try Again?</button>
+        <button onClick={restartGame} className="leaderboard-button">
+          Try Again?
+        </button>
+        <Link to="/" onClick={restartGame}>Try again?</Link>
       </div>
     </div>
   );

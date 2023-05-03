@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const StartGame = ({ targets, startGame }) => {
   const targetsList = targets.map((target) => {
@@ -14,7 +15,9 @@ const StartGame = ({ targets, startGame }) => {
       <div className="game-wrapper">
         <p className="game-info">Find them as fast as you can!</p>
         <div className="targets-list-start-panel"> {targetsList}</div>
-        <button onClick={startGame}>Start!</button>
+        <Link to="/game" onClick={startGame}>
+          <button onClick={startGame}>Start!</button>
+        </Link>
       </div>
     </div>
   );

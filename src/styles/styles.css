@@ -85,19 +85,19 @@ form {
   background-color: rgba(49, 20, 20, 0.918);
 }
 .image-game {
-  display: none;
+  display: block;
   min-height: 90vh;
 }
 .winning-main {
   background-color: rgba(49, 20, 20, 0.918);
   height: 90vh;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 .leaderboard {
   background-color: rgba(49, 20, 20, 0.918);
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
