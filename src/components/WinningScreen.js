@@ -6,9 +6,9 @@ const WinningScreen = ({ username, timer, handleUsername, saveScore }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     saveScore();
-    console.log("data was sent from form");
-    navigate("/leaderboard",{replace: true});
+    navigate("/leaderboard", { replace: true });
   };
+  
   return (
     <div className="winning-main">
       <form onSubmit={handleSubmit}>

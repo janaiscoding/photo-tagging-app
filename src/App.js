@@ -132,14 +132,12 @@ const App = () => {
 
   // Sends the score to db
   const saveScore = async () => {
-    console.log("save score is called");
     //here i will send the data to firebase user: username time: timer
     try {
       await addDoc(collection(db, "leaderboard"), {
         username: username,
         timer: timer,
       });
-      console.log("sent data to firebase");
     } catch (error) {
       console.error("Error writing new leaderboard entry", error);
     }

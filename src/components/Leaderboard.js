@@ -38,10 +38,14 @@ const Leaderboard = ({ restartGame }) => {
     <div className="leaderboard">
       <div className="board-wrapper">
         <h1 className="leaderboard-title"> Hall of Fame (Top 15)</h1>
-        {allScores}
-        <button onClick={restartGame} className="leaderboard-button">
-          <Link to="/">Try again?</Link>
-        </button>
+        {allScores.length > 0
+          ? allScores
+          : "Sorry! Data is currently unavailable.."}
+        <Link to="/">
+          <button onClick={restartGame} className="leaderboard-button">
+            Try again?
+          </button>
+        </Link>
       </div>
     </div>
   );
