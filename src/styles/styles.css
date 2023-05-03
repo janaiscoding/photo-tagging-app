@@ -70,6 +70,7 @@
   font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: 1px;
+  color: var(--primary-red);
 }
 .targets-list-start-panel {
   display: flex;

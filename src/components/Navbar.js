@@ -20,10 +20,21 @@ const Navbar = ({ targets, timer, handleTimer }) => {
   return (
     <>
       <nav className="nav-bar">
-        <Link to="/" onClick={handleTimer}>Home</Link>
-        <div className="targets-list-nav-bar">{targetsList}</div>
-        <div className="timer"> Timer: {(timer / 1000).toFixed(2)} s </div>
-        <Link to="/leaderboard" onClick={handleTimer}>Leaderboard</Link>
+        <Link to="/" onClick={handleTimer}>
+          Home
+        </Link>
+        {timer === 0 ? (
+          ""
+        ) : (
+          <>
+            <div className="targets-list-nav-bar">{targetsList}</div>
+            <div className="timer"> Timer: {(timer / 1000).toFixed(2)} s </div>
+          </>
+        )}
+
+        <Link to="/leaderboard" onClick={handleTimer}>
+          Leaderboard
+        </Link>
       </nav>
     </>
   );
