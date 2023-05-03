@@ -24,7 +24,7 @@ const Navbar = ({ targets, timer, handleTimer }) => {
         <Link to="/" onClick={handleTimer}>Home</Link>
         <div className="targets-list-nav-bar">{targetsList}</div>
         <div className="timer"> Timer: {(timer / 1000).toFixed(2)} s </div>
-        <Link to="/leaderboard">Leaderboard</Link>
+        <Link to="/leaderboard" onClick={handleTimer}>Leaderboard</Link>
       </nav>
     </>
   );
