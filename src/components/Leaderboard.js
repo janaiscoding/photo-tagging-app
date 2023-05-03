@@ -4,24 +4,25 @@ import db from "../firebase";
 import { Link } from "react-router-dom";
 
 const Leaderboard = ({ restartGame }) => {
-   const [scores, setScores] = useState([]);
-  // useEffect(() => {
-  //   async function getData() {
-  //     try {
-  //       const querySnapshot = await getDocs(collection(db, "leaderboard"));
-  //       let tempArr = [];
-  //       querySnapshot.forEach((doc) => {
-  //         tempArr.push(doc.data());
-  //       });
-  //       tempArr.sort((a, b) => a.timer - b.timer);
-  //       tempArr = tempArr.filter((a) => a.timer !== 0);
-  //       setScores(tempArr);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }
-  //   getData();
-  // });
+  const [scores, setScores] = useState([]);
+  useEffect(() => {
+    console.log("how often does this get changed");
+    async function getData() {
+      try {
+        const querySnapshot = await getDocs(collection(db, "leaderboard"));
+        let tempArr = [];
+        querySnapshot.forEach((doc) => {
+          tempArr.push(doc.data());
+        });
+        tempArr.sort((a, b) => a.timer - b.timer);
+        tempArr = tempArr.filter((a) => a.timer !== 0);
+        setScores(tempArr);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getData();
+  }, []);
 
   const allScores = scores.map((entry, i) => {
     return (
