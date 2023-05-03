@@ -37,7 +37,10 @@ const App = () => {
     setTimer(0);
     setTimerActive(true);
   };
-
+  const handleTimer = () => {
+    setTimer(0);
+    setTimerActive(false);
+  };
   const clickHandler = (e) => {
     const borderBox = document.getElementById("border-box");
     // Set coordinates of the user click to pass onto the buttons list position.
@@ -164,7 +167,12 @@ const App = () => {
   return (
     <>
       <HashRouter>
-        <Navbar targets={targets} timer={timer} restartGame={restartGame} />
+        <Navbar
+          targets={targets}
+          timer={timer}
+          restartGame={restartGame}
+          handleTimer={handleTimer}
+        />
         <Routes>
           <Route
             exact
