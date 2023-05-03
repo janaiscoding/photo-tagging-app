@@ -37,7 +37,7 @@ const Leaderboard = ({ restartGame }) => {
   return (
     <div className="leaderboard">
       <div className="board-wrapper">
-        <h1 className="leaderboard-title"> Hall of Fame (Top 15)</h1>
+        <p className="leaderboard-title"> Hall of Fame</p>
         {allScores.length > 0
           ? allScores
           : "Sorry! Data is currently unavailable.."}

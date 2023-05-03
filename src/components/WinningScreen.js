@@ -19,9 +19,9 @@ const WinningScreen = ({
   return (
     <div className="winning-main">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-          Well done! Your score was {(timer / 1000).toFixed(2)}s. Insert your
-          name to enter the leaderboard:
+        <label htmlFor="username" className="form-details">
+          Well done! Your score was {(timer / 1000).toFixed(2)}s.
+          <p>Insert your name to enter the leaderboard:</p>
         </label>
         <input
           type="text"
@@ -31,12 +31,12 @@ const WinningScreen = ({
           required
         />
         <div className="button-wrapper">
-        <button type="submit">Save Score</button>
-        <Link to="/">
-          <button onClick={restartGame} className="leaderboard-button">
-            Try again?
-          </button>
-        </Link>
+          <button type="submit">Save Score</button>
+          <Link to="/">
+            <button onClick={restartGame} className="leaderboard-button">
+              Try again?
+            </button>
+          </Link>
         </div>
       </form>
     </div>

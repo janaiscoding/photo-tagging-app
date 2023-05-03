@@ -32,10 +32,10 @@ const SelectionBox = ({
     <>
       {isVisible ? (
         <div className="selection-box">
-          {toBeFoundButtons}
-          <button className="close-button" onClick={handleClearing}>
-            Close
-          </button>
+          <div className="close-button" onClick={handleClearing}>
+            x
+          </div>
+          <div className="targets-wrapper"> {toBeFoundButtons} </div>
         </div>
       ) : (
         ""

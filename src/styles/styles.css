@@ -14,9 +14,10 @@
   --primary-orange: #a45a0f;
   --primary-brown: #0d0900;
   --primary-green: #151a15;
-  --primary-red: #9a2d19;
+  --primary-red: rgba(49, 20, 20, 0.918);
   --primary-pink: #d5c1be;
   --primary-grey: #27292a;
+  --background-grey: #625e5e;
 }
 /* NAV-BAR */
 .nav-bar {
@@ -44,14 +45,14 @@
   text-decoration: line-through;
 }
 
-/* START GAME PANEL */
+/* START GAME - HOME PANEL */
 .start-game-main {
   height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-grey);
+  background-color: var(--background-grey);
 }
 .game-wrapper {
   background-color: var(--primary-pink);
@@ -96,28 +97,56 @@
   overflow: auto;
 }
 /* WINNING SCREEN*/
+.winning-main {
+  background-color: var(--background-grey);
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 form {
-  background-color: rgba(245, 230, 230, 0.918);
+  background-color: var(--primary-pink);
   font-size: 1.4rem;
   margin-top: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  border: 1px solid #0d0900;
   border-radius: 5px;
   padding: 40px;
+  box-shadow: 0px 4px 14px -3px #2e2d2d;
+}
+.form-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--primary-red);
 }
 .button-wrapper {
   display: flex;
   gap: 10px;
 }
 /* LEADERBOARD */
+.leaderboard {
+  background-color: var(--background-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 90vh;
+}
 .board-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  min-height: 50vh;
   width: 500px;
   background-color: rgba(245, 230, 230, 0.918);
   font-size: 1.4rem;
@@ -128,6 +157,13 @@ form {
   border-radius: 5px;
   padding: 40px;
   gap: 5px;
+  box-shadow: 0px 4px 14px -3px #2e2d2d;
+}
+.leaderboard-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--primary-red);
 }
 .board-entry {
   border-bottom: 1px solid saddlebrown;
@@ -137,24 +173,8 @@ form {
   width: 100%;
 }
 
-/* MANIPULATED IN JS*/
+/* MANIPULATED IN JS - SELECTION BOX*/
 
-.winning-main {
-  background-color: rgba(49, 20, 20, 0.918);
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-.leaderboard {
-  background-color: rgba(49, 20, 20, 0.918);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  height: 90vh;
-}
 #border-box {
   position: absolute;
   width: 70px;
@@ -164,16 +184,39 @@ form {
 }
 #popup {
   position: absolute;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   background-color: rgba(250, 235, 215, 0.623);
-  color: #0d0900;
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
 }
 .selection-box {
   position: absolute;
-  font-size: 48px;
+  font-size: 1.4rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: end;
+}
+.targets-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.close-button {
+  margin-bottom: 5px;
+  background-color: var(--primary-pink);
+  justify-content: center;
+  display: flex;
+  color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  align-items: center;
+}
+.close-button:hover {
+  cursor: pointer;
+  transform: translateY(-1px);
 }
 /*FOOTER*/
 footer {
