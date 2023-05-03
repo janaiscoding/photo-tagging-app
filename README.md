@@ -13,7 +13,8 @@
 
 ## Project Details, Description & Personal Notes
 
-- This is a **Find Waldo** type of game, where you are presented with an image, which holds certain targets to be found. I have learned to implement this using the HTML tag <map>.
+- This is a **Find Waldo** type of game, where you are presented with an image, which holds certain targets to be found.
+- I have learned how to implement this using the HTML tag <map>, so that no matter what the image resolution is (for example if the user zooms in or zooms out) the elements stay the same and are recognizable for tagging.
 - When you successfully find all the required targets, you are prompted for a username.
 - Your username and your score gets added to the **backend** as a document in the **collection database**.
 - Afterwards, I am retrieving the updated data **onSnapshot** to display on a leaderboard. (still working on this)
