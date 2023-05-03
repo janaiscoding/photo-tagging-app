@@ -40,6 +40,8 @@ const App = () => {
   const handleTimer = () => {
     setTimer(0);
     setTimerActive(false);
+    // Support to remove existing boxes
+    handleClearing();
   };
 
   const clickHandler = (e) => {
