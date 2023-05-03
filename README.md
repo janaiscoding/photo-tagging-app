@@ -2,8 +2,8 @@
 
 ## Project's Scope
 
-- The scope of this project was to build my fourth application in React.
-- This is a SPA using React Router, but this time also using **Firebase** for backend Firestore implementation.
+- The goal of this project was to create a photo tagging SPA game using **React**, **React Router** and **Firebase**.
+- The **backend** incorporation is used to store the game data and display a global leaderboard.
 
 ## Live Demo
 
