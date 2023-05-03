@@ -6,7 +6,7 @@ const StartGame = ({ targets, startGame }) => {
     return (
       <div key={target.id} className="target-item-start-panel">
         <img src={target.img} alt={target.name} height={100} />
-        <p>{target.name}</p>
+        {/* <p>{target.name}</p> */}
       </div>
     );
   });

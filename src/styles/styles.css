@@ -15,14 +15,16 @@
   --primary-brown: #0d0900;
   --primary-green: #151a15;
   --primary-red: #9a2d19;
+  --primary-pink: #d5c1be;
+  --primary-grey: #27292a;
 }
 /* NAV-BAR */
 .nav-bar {
-  background-color: var(--primary-green);
+  background-color: var(--primary-blue);
   color: #ecc19e;
   letter-spacing: 1px;
   display: flex;
-  border-bottom: 1px solid #ecc19e;
+  border-bottom: 1px solid #ecc19e83;
   font-weight: 700;
   letter-spacing: 2px;
   justify-content: center;
@@ -32,9 +34,6 @@
   align-items: center;
   position: sticky;
   box-shadow: 0px 4px 14px -3px #000000;
-}
-.image-game {
-  overflow: auto;
 }
 .targets-list-nav-bar {
   display: flex;
@@ -46,23 +45,31 @@
 }
 
 /* START GAME PANEL */
+.start-game-main {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-grey);
+}
 .game-wrapper {
-  background-color: #a45a0f;
+  background-color: var(--primary-pink);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
   padding: 50px;
-  border: 1px solid black;
   border-radius: 5px;
-  color: white;
+  color: var(--primary-brown);
+  box-shadow: 0px 4px 14px -3px #2e2d2d;
 }
+
 .game-info {
   font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: 1px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.651);
 }
 .targets-list-start-panel {
   display: flex;
@@ -74,6 +81,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #082a3a;
+  box-shadow: 0px 4px 14px -3px #2e2d2d;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+}
+.target-item-start-panel:hover {
+  transform: scale(1.05);
+}
+/* MAIN GAME*/
+.image-game {
+  overflow: auto;
 }
 /* WINNING SCREEN*/
 form {
@@ -118,15 +137,6 @@ form {
 }
 
 /* MANIPULATED IN JS*/
-.start-game-main {
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: antiquewhite;
-  background-color: #031820;
-}
 
 .winning-main {
   background-color: rgba(49, 20, 20, 0.918);
@@ -166,10 +176,8 @@ form {
 }
 /*FOOTER*/
 footer {
-  background-color: var(--primary-green);
-  border-top: 1px solid #ecc19e;
-  -webkit-box-shadow: 0px -5px 10px -4px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px -5px 10px -4px rgba(0, 0, 0, 0.2);
+  background-color: var(--primary-blue);
+  border-top: 1px solid #ecc19e83;
   display: flex;
   justify-content: center;
   align-items: center;
