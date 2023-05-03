@@ -96,6 +96,52 @@
 .image-game {
   overflow: auto;
 }
+/* MANIPULATED IN JS - SELECTION BOX*/
+
+#border-box {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+#popup {
+  position: absolute;
+  font-size: 1.4rem;
+  background-color: rgba(250, 235, 215, 0.623);
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
+}
+.selection-box {
+  position: absolute;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.targets-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.close-button {
+  margin-bottom: 5px;
+  background-color: var(--primary-pink);
+  justify-content: center;
+  display: flex;
+  color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  align-items: center;
+}
+.close-button:hover {
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+
 /* WINNING SCREEN*/
 .winning-main {
   background-color: var(--background-grey);
@@ -131,6 +177,7 @@ form {
   display: flex;
   gap: 10px;
 }
+
 /* LEADERBOARD */
 .leaderboard {
   background-color: var(--background-grey);
@@ -173,51 +220,6 @@ form {
   width: 100%;
 }
 
-/* MANIPULATED IN JS - SELECTION BOX*/
-
-#border-box {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  border: 2px solid black;
-  border-radius: 50%;
-}
-#popup {
-  position: absolute;
-  font-size: 1.4rem;
-  background-color: rgba(250, 235, 215, 0.623);
-  padding: 10px;
-  border-radius: 10px;
-  color: black;
-}
-.selection-box {
-  position: absolute;
-  font-size: 1.4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
-.targets-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.close-button {
-  margin-bottom: 5px;
-  background-color: var(--primary-pink);
-  justify-content: center;
-  display: flex;
-  color: red;
-  width: 30px;
-  height: 30px;
-  border-radius: 3px;
-  text-align: center;
-  align-items: center;
-}
-.close-button:hover {
-  cursor: pointer;
-  transform: translateY(-1px);
-}
 /*FOOTER*/
 footer {
   background-color: var(--primary-blue);
