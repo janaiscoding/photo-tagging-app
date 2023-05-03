@@ -10,10 +10,44 @@
 }
 :root {
   font-family: "Inder";
+  --primary-blue: #031820;
+  --primary-orange: #a45a0f;
+  --primary-brown: #0d0900;
+  --primary-green: #151a15;
+  --primary-red: #9a2d19;
 }
+/* NAV-BAR */
+.nav-bar {
+  background-color: var(--primary-green);
+  color: #ecc19e;
+  letter-spacing: 1px;
+  display: flex;
+  border-bottom: 1px solid #ecc19e;
+  font-weight: 700;
+  letter-spacing: 2px;
+  justify-content: center;
+  gap: 50px;
+  height: 7vh;
+  font-size: 1.3rem;
+  align-items: center;
+  position: sticky;
+  box-shadow: 0px 4px 14px -3px #000000;
+}
+.image-game {
+  overflow: auto;
+}
+.targets-list-nav-bar {
+  display: flex;
+  gap: 20px;
+}
+
+.found {
+  text-decoration: line-through;
+}
+
 /* START GAME PANEL */
 .game-wrapper {
-  background-color: #A45A0F;
+  background-color: #a45a0f;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,10 +127,7 @@ form {
   color: antiquewhite;
   background-color: #031820;
 }
-.image-game {
-  display: block;
-  min-height: 90vh;
-}
+
 .winning-main {
   background-color: rgba(49, 20, 20, 0.918);
   height: 90vh;
@@ -135,7 +166,7 @@ form {
 }
 /*FOOTER*/
 footer {
-  background-color: #0d0900;
+  background-color: var(--primary-green);
   border-top: 1px solid #ecc19e;
   -webkit-box-shadow: 0px -5px 10px -4px rgba(0, 0, 0, 0.2);
   box-shadow: 0px -5px 10px -4px rgba(0, 0, 0, 0.2);
