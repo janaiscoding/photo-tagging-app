@@ -5,8 +5,9 @@ const StartGame = ({ targets, startGame }) => {
   const targetsList = targets.map((target) => {
     return (
       <div key={target.id} className="target-item-start-panel">
-        <img src={target.img} alt={target.name} height={100} />
-        {/* <p>{target.name}</p> */}
+        <a href={target.wikiLink} target="_blank" rel="noreferrer">
+          <img src={target.img} alt={target.name} height={200} />
+        </a>
       </div>
     );
   });
