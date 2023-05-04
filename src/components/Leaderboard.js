@@ -36,7 +36,6 @@ const Leaderboard = ({ restartGame }) => {
       // });
     }
     getData();
-    console.log(`my new scores just got changed inside use effect`, scores);
   }, []);
 
   let allScores = scores.map((entry, i) => {
@@ -53,9 +52,7 @@ const Leaderboard = ({ restartGame }) => {
     <div className="leaderboard">
       <div className="board-wrapper">
         <p className="leaderboard-title"> Hall of Fame</p>
-        {allScores.length > 0
-          ? allScores
-          : "Sorry! Data is currently unavailable.."}
+        {allScores.length > 0 ? allScores : "Loading.."}
         <Link to="/">
           <button onClick={restartGame} className="leaderboard-button">
             Try again?
