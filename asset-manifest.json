@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/photo-tagging-app/static/css/main.1f7d7c59.css",
-    "main.js": "/photo-tagging-app/static/js/main.8e92476c.js",
-    "static/media/discussing-the-divine-comedy-with-dante.jpg": "/photo-tagging-app/static/media/discussing-the-divine-comedy-with-dante.5b8591d46a1b758bbf10.jpg",
-    "static/media/charlie.png": "/photo-tagging-app/static/media/charlie.9567d82d74284028f720.png",
-    "static/media/abraham.png": "/photo-tagging-app/static/media/abraham.42a999187ff45283e2fd.png",
-    "static/media/bruce.png": "/photo-tagging-app/static/media/bruce.bd70700879bcefe501ce.png",
-    "static/media/Inder-Regular.ttf": "/photo-tagging-app/static/media/Inder-Regular.8a2461b6d08b6710e6f8.ttf",
-    "index.html": "/photo-tagging-app/index.html",
-    "main.1f7d7c59.css.map": "/photo-tagging-app/static/css/main.1f7d7c59.css.map",
-    "main.8e92476c.js.map": "/photo-tagging-app/static/js/main.8e92476c.js.map"
+    "main.css": "/static/css/main.d5fe5782.css",
+    "main.js": "/static/js/main.7a752bde.js",
+    "static/media/discussing-the-divine-comedy-with-dante.jpg": "/static/media/discussing-the-divine-comedy-with-dante.5b8591d46a1b758bbf10.jpg",
+    "static/media/charlie.png": "/static/media/charlie.9567d82d74284028f720.png",
+    "static/media/abraham.png": "/static/media/abraham.42a999187ff45283e2fd.png",
+    "static/media/bruce.png": "/static/media/bruce.bd70700879bcefe501ce.png",
+    "static/media/Inder-Regular.ttf": "/static/media/Inder-Regular.8a2461b6d08b6710e6f8.ttf",
+    "index.html": "/index.html",
+    "main.d5fe5782.css.map": "/static/css/main.d5fe5782.css.map",
+    "main.7a752bde.js.map": "/static/js/main.7a752bde.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f7d7c59.css",
-    "static/js/main.8e92476c.js"
+    "static/css/main.d5fe5782.css",
+    "static/js/main.7a752bde.js"
   ]
 }
