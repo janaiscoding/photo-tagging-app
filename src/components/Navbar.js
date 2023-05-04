@@ -21,7 +21,7 @@ const Navbar = ({ targets, timer, handleTimer }) => {
     <>
       <nav className="nav-bar">
         <Link to="/" onClick={handleTimer}>
-          Home
+          Play the game!
         </Link>
         {timer === 0 ? (
           ""
@@ -31,10 +31,6 @@ const Navbar = ({ targets, timer, handleTimer }) => {
             <div className="timer"> Timer: {(timer / 1000).toFixed(2)} s </div>
           </>
         )}
-
-        <Link to="/leaderboard" onClick={handleTimer}>
-          Leaderboard
-        </Link>
       </nav>
     </>
   );

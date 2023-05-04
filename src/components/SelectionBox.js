@@ -23,8 +23,13 @@ const SelectionBox = ({
   useEffect(() => {
     const selBox = document.querySelector(".selection-box");
     if (selBox) {
-      selBox.style.left = clickCoord[0] + 50 + "px";
-      selBox.style.top = clickCoord[1] + 50 + "px";
+      if (clickCoord[1] < 450) {
+        selBox.style.left = clickCoord[0] + 20 + "px";
+        selBox.style.top = clickCoord[1] + 20 + "px";
+      } else if (clickCoord[1] > 450) {
+        selBox.style.left = clickCoord[0] + 50 + "px";
+        selBox.style.top = clickCoord[1] - 150 + "px";
+      }
     }
   });
 

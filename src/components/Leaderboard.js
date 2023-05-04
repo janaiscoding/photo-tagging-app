@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import db from "../firebase";
 import { Link } from "react-router-dom";
 
 const Leaderboard = ({ restartGame }) => {
   const [scores, setScores] = useState([]);
   useEffect(() => {
-    console.log("how often does this get changed");
     async function getData() {
       try {
         const querySnapshot = await getDocs(collection(db, "leaderboard"));
@@ -20,11 +19,27 @@ const Leaderboard = ({ restartGame }) => {
       } catch (err) {
         console.log(err);
       }
+      // const recentLeaderboard = query(
+      //   collection(db, "leaderboard"),
+      //   orderBy("timer"),
+      //   limit(15)
+      // );
+      // let tempArr = [];
+      // onSnapshot(recentLeaderboard, (snapshot) => {
+      //   snapshot.docChanges().forEach((change) => {
+      //     let newScore = change.doc.data();
+      //     console.log(newScore);
+      //     tempArr.push(newScore);
+      //     setScores(tempArr);
+      //     console.log("on change i set the new array scores");
+      //   });
+      // });
     }
     getData();
+    console.log(`my new scores just got changed inside use effect`, scores);
   }, []);
 
-  const allScores = scores.map((entry, i) => {
+  let allScores = scores.map((entry, i) => {
     return (
       <div key={i} className="board-entry">
         <p className="username">
