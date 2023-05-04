@@ -32,7 +32,7 @@
 git clone https://github.com/janaiscoding/photo-tagging-app
 cd photo-tagging-app
 npm install
-npm start
+npm run start
 ```
 
 # Built with
