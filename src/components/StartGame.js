@@ -1,11 +1,9 @@
+/* eslint-disable jsx-a11y/aria-role */
 import React from "react";
-//import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const StartGame = ({ targets, startGame }) => {
-  //const [selectedId, setSelectedId] = useState(null);
-
   const targetsList = targets.map((target) => {
     return (
       <motion.div
@@ -22,7 +20,7 @@ const StartGame = ({ targets, startGame }) => {
   });
   return (
     <>
-      <div className="start-game-main">
+      <div role="start-element" className="start-game-main">
         <motion.div
           className="game-wrapper"
           initial={{ opacity: 0, scale: 0.7 }}

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/aria-role */
 /* eslint-disable array-callback-return */
 
 import React, { useEffect } from "react";
@@ -37,7 +38,7 @@ const SelectionBox = ({
   return (
     <>
       {isVisible ? (
-        <div className="selection-box">
+        <div className="selection-box" role="selection-box">
           <div className="close-button" onClick={handleClearing}>
             x
           </div>

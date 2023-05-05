@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/aria-role */
 import React from "react";
 
 const Footer = () => {
   return (
     <>
-      <footer>
+      <footer role="footer">
         <a
           href="https://github.com/janaiscoding"
           className="footer-link"

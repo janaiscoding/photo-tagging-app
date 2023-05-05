@@ -23,6 +23,8 @@
 - I read a lot of documentation about navigation, the useNavigate() hook, **redirecting**, but I came to the conclusion that in that particular case, a simple Conditional Rendering would be sufficient.
 - However, I still used **useNavigate()** to be able to handle the submit form and then redirect after the user input has been successfully added to the backend. Without doing so, the form would have either stopped working, or the button would have redirected instantly without waiting for my async function of adding a new document to the backend to complete (the Promise to be resolved).
 - Another difficult challenge I faced was trying to **deploy** my application to Firebase, since I would only see a blank page, but once again, after reading a lot, the issue lied within my package.json file. I was not supposed to have a "homepage" property, which was necessary for a gh-pages deploying, but it needed to be removed in order to deploy correctly on firebase.
+- Furthermore, I have learned how to implement a production-ready motion library for React, for animating certain elements: [Framer Motion](https://www.framer.com/motion/)
+- Upon reviewing multiple times, I have discovered many edge cases I fixed, which turned out to be a great experience to refactor my code and gain a better understanding of the React stack trace.
 
 ## Getting Started
 
@@ -39,10 +41,10 @@ npm run start
 
 ## Technologies
 
-- React and React Router
+- React, React Router
 - Firebase - Google Cloud Firestore
-- CSS3
-- HTML5
+- Styling: CSS3 and Framer Motion
+- HTML5, JSX
 
 ## Tools Used
 
