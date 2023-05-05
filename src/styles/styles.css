@@ -89,9 +89,7 @@
   padding: 20px;
   color: white;
 }
-.target-item-start-panel:hover {
-  transform: scale(1.05);
-}
+
 /* MAIN GAME*/
 .image-game {
   overflow: auto;

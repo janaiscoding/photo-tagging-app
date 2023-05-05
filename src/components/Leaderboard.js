@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../firebase";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Leaderboard = ({ restartGame }) => {
   const [scores, setScores] = useState([]);
+
   useEffect(() => {
     async function getData() {
       try {
@@ -19,21 +21,6 @@ const Leaderboard = ({ restartGame }) => {
       } catch (err) {
         console.log(err);
       }
-      // const recentLeaderboard = query(
-      //   collection(db, "leaderboard"),
-      //   orderBy("timer"),
-      //   limit(15)
-      // );
-      // let tempArr = [];
-      // onSnapshot(recentLeaderboard, (snapshot) => {
-      //   snapshot.docChanges().forEach((change) => {
-      //     let newScore = change.doc.data();
-      //     console.log(newScore);
-      //     tempArr.push(newScore);
-      //     setScores(tempArr);
-      //     console.log("on change i set the new array scores");
-      //   });
-      // });
     }
     getData();
   }, []);
@@ -50,7 +37,12 @@ const Leaderboard = ({ restartGame }) => {
   });
   return (
     <div className="leaderboard">
-      <div className="board-wrapper">
+      <motion.div
+        className="board-wrapper"
+        initial={{ opacity: 0, scale: 0.7 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <p className="leaderboard-title"> Hall of Fame</p>
         {allScores.length > 0 ? allScores : "Loading.."}
         <Link to="/">
@@ -58,7 +50,7 @@ const Leaderboard = ({ restartGame }) => {
             Try again?
           </button>
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 };

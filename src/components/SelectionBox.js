@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+
 import React, { useEffect } from "react";
 import TargetButton from "./TargetButton";
 
@@ -8,7 +10,6 @@ const SelectionBox = ({
   handleSelector,
   handleClearing,
 }) => {
-  // eslint-disable-next-line array-callback-return
   const toBeFoundButtons = targets.map((target) => {
     if (!target.isFound) {
       return (
