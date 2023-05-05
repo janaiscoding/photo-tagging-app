@@ -30,7 +30,6 @@ const App = () => {
   const [isGameWon, setGameWon] = useState(false);
 
   const startGame = () => {
-    //clean any data
     targets.forEach((target) => (target.isFound = false));
     setGameWon(false);
     setTimer(0);
