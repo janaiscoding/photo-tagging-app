@@ -7,7 +7,7 @@
 
 ## Live Demo
 
-![Gif preview of the photo tagging app]()
+![Gif preview of the photo tagging app](/src/assets/photo-tagging-app-preview.gif)
 
 - See the full live preview [here](https://janaiscoding.github.io/photo-tagging-app/)
 
