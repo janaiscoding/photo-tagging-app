@@ -17,7 +17,7 @@
 - I have learned how to implement this using the HTML tag <map>, so that no matter what the image resolution is (for example if the user zooms in or zooms out) the elements stay the same and are recognizable for tagging.
 - When you successfully find all the required targets, you are prompted for a username.
 - Your username and your score gets added to the **backend** as a document in the **collection database**.
-- Afterwards, I am retrieving the updated data **onSnapshot** to display on a leaderboard. (still working on this)
+- Afterwards, I am retrieving the updated data to display on the leaderboard, in the correct order.
 - This project was really challenging, but it helped me understand how to use Hooks better in React, more specifically why **dependencies** in useEffect are so important, to avoid calling the database requests all the time. (Quota exceeded error)
 - I have also gained more experience with using **Conditional Rendering** based on State, this time I implemented it alongside with **React Router**, in order to display a certain container based on current game condition. My particular case was: if the game is won, simply display the winning page!
 - I read a lot of documentation about navigation, the useNavigate() hook, **redirecting**, but I came to the conclusion that in that particular case, a simple Conditional Rendering would be sufficient.
@@ -54,6 +54,10 @@ npm run start
 - Git and Github
 
 ### Future plans for this project
+ 
+- Mobile Responsiveness
+- Better unit testing 
+- Apply any new knowledge I gain in the future
 
 ## Copyright
 
