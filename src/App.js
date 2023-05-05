@@ -205,7 +205,12 @@ const App = () => {
                   saveScore={saveScore}
                 />
               ) : (
-                <Mapper clickHandler={clickHandler} />
+                <Mapper
+                  clickHandler={clickHandler}
+                  targets={targets}
+                  setTimer={setTimer}
+                  setTimerActive={setTimerActive}
+                />
               )
             }
           />

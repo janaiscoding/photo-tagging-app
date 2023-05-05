@@ -1,7 +1,10 @@
 import image from "../assets/discussing-the-divine-comedy-with-dante.jpg";
-import React from "react";
+import React, { useEffect } from "react";
 
-const Mapper = ({ clickHandler }) => {
+const Mapper = ({ clickHandler, setTimerActive }) => {
+  useEffect(() => {
+    setTimerActive(true);
+  }, [setTimerActive]);
   return (
     <div className="image-game">
       <img
