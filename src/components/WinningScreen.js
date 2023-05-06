@@ -12,8 +12,13 @@ const WinningScreen = ({
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    saveScore();
-    navigate("/leaderboard", { replace: true });
+    if (timer !== 0) {
+      saveScore();
+      navigate("/leaderboard", { replace: true });
+    } else {
+      alert("Timer cannot be 0, sending you back to start page...");
+      navigate("/", { replace: true });
+    }
   };
 
   return (
