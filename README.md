@@ -9,7 +9,7 @@
 
 ![Gif preview of the photo tagging app](/src/assets/photo-tagging-app-preview.gif)
 
-- See the full live preview [here](https://janaiscoding.github.io/photo-tagging-app/)
+- See the full live preview on the current Firebase Deploy: [A Photo Tagging App](https://a-photo-tagging-app.web.app/)
 
 ## Project Details, Description & Personal Notes
 
@@ -61,5 +61,5 @@ npm run start
 
 ## Copyright
 
-- This project is part of The Odin Project's [curriculum](https://www.theodinproject.com/lessons/node-path-javascript-where-s-waldo-a-photo-tagging-app).
+- This project is part of [The Odin Project's curriculum](https://www.theodinproject.com/lessons/node-path-javascript-where-s-waldo-a-photo-tagging-app).
 - The images for this app: [Discussing the Divine Comedy with Dante and Lewis Carroll](https://www.lewiscarroll.org/2012/07/06/discussing-the-divine-comedy-with-dante-and-lewis-carroll/)

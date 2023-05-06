@@ -29,16 +29,14 @@ const StartGame = ({ targets, startGame }) => {
         >
           <p className="game-info">Find them as fast as you can!</p>
           <div className="targets-list-start-panel"> {targetsList}</div>
+          <div className="button-wrapper">
           <Link to="/game" onClick={startGame}>
-            <motion.button
-              onClick={startGame}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              Start!
-            </motion.button>
+            <button onClick={startGame}>Start!</button>
           </Link>
+          <Link to="/leaderboard">
+            <button className="leaderboard-button">See Leaderboard</button>
+          </Link>
+          </div>
         </motion.div>
       </div>
     </>
