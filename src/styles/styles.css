@@ -273,6 +273,7 @@ button {
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+  transition: transform .3s ease-in-out;
 }
 
 button:hover,
