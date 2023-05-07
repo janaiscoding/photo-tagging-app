@@ -20,7 +20,7 @@ const StartGame = ({ targets, startGame }) => {
   });
   return (
     <>
-      <div role="start-element" className="start-game-main">
+      <div className="start-game-main">
         <motion.div
           className="game-wrapper"
           initial={{ opacity: 0, scale: 0.7 }}

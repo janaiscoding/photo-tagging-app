@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer role="footer">
+      <footer>
         <a
           href="https://github.com/janaiscoding"
           className="footer-link"
