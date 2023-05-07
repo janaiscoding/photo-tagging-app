@@ -93,11 +93,13 @@
 /* MAIN GAME*/
 .image-game {
   height:auto;
+  overflow: auto;
   background-color: var(--primary-blue);
 }
-img{
+/* img{
   width: 100%;
-}
+  this breaks my map ^ 
+} */
 /* MANIPULATED IN JS - SELECTION BOX*/
 
 #border-box {
