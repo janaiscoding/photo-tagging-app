@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.688f4ac1.css",
+    "main.css": "/static/css/main.0a4b0e6a.css",
     "main.js": "/static/js/main.aa8f817a.js",
     "static/media/discussing-the-divine-comedy-with-dante.jpg": "/static/media/discussing-the-divine-comedy-with-dante.5b8591d46a1b758bbf10.jpg",
     "static/media/charlie.png": "/static/media/charlie.9567d82d74284028f720.png",
@@ -8,11 +8,11 @@
     "static/media/bruce.png": "/static/media/bruce.bd70700879bcefe501ce.png",
     "static/media/Inder-Regular.ttf": "/static/media/Inder-Regular.8a2461b6d08b6710e6f8.ttf",
     "index.html": "/index.html",
-    "main.688f4ac1.css.map": "/static/css/main.688f4ac1.css.map",
+    "main.0a4b0e6a.css.map": "/static/css/main.0a4b0e6a.css.map",
     "main.aa8f817a.js.map": "/static/js/main.aa8f817a.js.map"
   },
   "entrypoints": [
-    "static/css/main.688f4ac1.css",
+    "static/css/main.0a4b0e6a.css",
     "static/js/main.aa8f817a.js"
   ]
 }
