@@ -92,7 +92,11 @@
 
 /* MAIN GAME*/
 .image-game {
-  overflow: auto;
+  height:auto;
+  background-color: var(--primary-blue);
+}
+img{
+  width: 100%;
 }
 /* MANIPULATED IN JS - SELECTION BOX*/
 

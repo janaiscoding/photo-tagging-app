@@ -38,7 +38,7 @@ const SelectionBox = ({
   return (
     <>
       {isVisible ? (
-        <div className="selection-box" role="selection-box">
+        <div className="selection-box">
           <div className="close-button" onClick={handleClearing}>
             x
           </div>
