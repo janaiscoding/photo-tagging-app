@@ -1,12 +1,14 @@
+
 import image from "../assets/discussing-the-divine-comedy-with-dante.jpg";
 import React, { useEffect } from "react";
 
 const Mapper = ({ clickHandler, setTimerActive }) => {
+
   useEffect(() => {
     setTimerActive(true);
   }, [setTimerActive]);
   return (
-    <div className="image-game">
+    <div className="overflow-auto w-max h-auto">
       <img
         src={image}
         alt="divine"

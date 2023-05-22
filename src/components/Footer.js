@@ -4,10 +4,10 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer>
+      <footer className="min-h-[5vh] flex items-center justify-center">
         <a
           href="https://github.com/janaiscoding"
-          className="footer-link"
+          className="text-pink"
           rel="noopener noreferrer"
         >
           ©JanaIsCoding

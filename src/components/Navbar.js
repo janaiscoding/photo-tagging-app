@@ -1,34 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ targets, timer, handleTimer }) => {
-  const targetsList = targets.map((target) => {
-    if (!target.isFound) {
-      return (
-        <p key={target.id} className="not-found">
-          {target.name}
-        </p>
-      );
-    } else {
-      return (
-        <p key={target.id} className="found">
-          {target.name}
-        </p>
-      );
-    }
-  });
+const Navbar = ({ timer, handleTimer }) => {
+
   return (
     <>
-      <nav className="nav-bar">
-        <Link to="/" onClick={handleTimer}>
+      <nav className="bg-dark-blue flex justify-center items-center px-10 min-h-[5vh] gap-5">
+        <Link to="/" className="text-base font-bold text-orange" onClick={handleTimer}>
           Play the game!
         </Link>
         {timer === 0 ? (
           ""
         ) : (
           <>
-            <div className="targets-list-nav-bar">{targetsList}</div>
-            <div className="timer"> Timer: {(timer / 1000).toFixed(2)} s </div>
+            <div className="text-base text-orange"> {(timer / 1000).toFixed(2)} s </div>
           </>
         )}
       </nav>

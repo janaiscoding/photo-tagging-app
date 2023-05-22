@@ -36,7 +36,7 @@ const Leaderboard = ({ restartGame }) => {
     );
   });
   return (
-    <div className="leaderboard">
+    <div className="min-h-[90vh] flex items-center justify-center p-3 bg-pink">
       <motion.div
         className="board-wrapper"
         initial={{ opacity: 0, scale: 0.7 }}

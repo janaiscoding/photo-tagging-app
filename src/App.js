@@ -11,7 +11,7 @@ import SelectionBox from "./components/SelectionBox";
 // Database Handle
 import db from "./firebase";
 import { collection, addDoc } from "firebase/firestore";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
   // all dom elements:
@@ -170,7 +170,7 @@ const App = () => {
 
   return (
     <>
-      <HashRouter>
+      <BrowserRouter>
         <Navbar
           targets={targets}
           timer={timer}
@@ -181,7 +181,7 @@ const App = () => {
           <Route
             exact
             path="/"
-            element={<StartGame targets={targets} startGame={startGame} />}
+            element={<StartGame targets={targets} startGame={startGame} handleTimer={handleTimer}/>}
           />
           <Route
             path="/win"
@@ -227,7 +227,7 @@ const App = () => {
           handleSelector={handleSelector}
         />
         <Footer />
-      </HashRouter>
+      </BrowserRouter>
     </>
   );
 };
