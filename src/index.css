@@ -134,3 +134,6 @@ button {
     justify-content: space-between;
     width: 100%;
   }
+  img {
+    max-width: max-content;
+  }

@@ -8,12 +8,13 @@ const Mapper = ({ clickHandler, setTimerActive }) => {
     setTimerActive(true);
   }, [setTimerActive]);
   return (
-    <div className="overflow-auto h-auto">
+    <div className="overflow-auto">
       <img
         src={image}
         alt="divine"
         onClick={(e) => clickHandler(e)}
         useMap="#image-map"
+        className="max-w-fill"
       />
       <map name="image-map">
         <area
