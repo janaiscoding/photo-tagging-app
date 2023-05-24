@@ -4,12 +4,12 @@
 
 - The goal of this project was to create a photo tagging SPA game using **React**, **React Router** and **Firebase**.
 - The **backend** incorporation is used to store the game data and display a global leaderboard.
+- Latest update supports mobile gameplay. 
+- Play the game on the Firebase Deploy: [A Photo Tagging App](https://a-photo-tagging-app.web.app/)
 
 ## Live Demo
 
 ![Gif preview of the photo tagging app](/src/assets/photo-tagging-app-preview.gif)
-
-- See the full live preview on the current Firebase Deploy: [A Photo Tagging App](https://a-photo-tagging-app.web.app/)
 
 ## Project Details, Description, Used Documentation & Personal Notes
 
