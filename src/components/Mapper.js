@@ -8,7 +8,7 @@ const Mapper = ({ clickHandler, setTimerActive }) => {
     setTimerActive(true);
   }, [setTimerActive]);
   return (
-    <div className="overflow-auto w-max h-auto">
+    <div className="overflow-auto h-auto">
       <img
         src={image}
         alt="divine"

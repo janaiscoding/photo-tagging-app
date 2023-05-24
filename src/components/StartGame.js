@@ -26,12 +26,12 @@ const StartGame = ({ targets, startGame, handleTimer}) => {
     <>
       <div className="min-h-[90vh] bg-pink p-3 flex items-center justify-center">
         <motion.div
-          className="flex flex-col justify-center bg-pink border border-solid border-grey p-5 rounded drop-shadow-md gap-5 items-center"
+          className="flex flex-col justify-center bg-soft-pink border border-solid border-grey p-10 rounded drop-shadow-md gap-5 items-center"
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-center text-3xl">Scroll everywhere in the image.</p>
+          <p className="text-center text-3xl">Scroll vertically and horizontally in the image.</p>
           <p>Find them as fast as you can!</p>
           <div className="flex gap-3 w-fit"> {targetsList}</div>
           <div className="flex gap-3">
